@@ -61,7 +61,7 @@ package states
 			
 			msg = "Pieces: ";
 			var y : int = 0;
-			for each (var obj : CollisionObj in game.pieceLibrary) {
+			for each (var obj : CollisionObj in game.pieceLibrary.library) {
 				msg += "C" + obj.channel + " Life " + obj.life + " points: " + obj.points + obj.role;
 				trace(obj.onImage, obj.offImage);
 				add(new FlxSprite(300, y, obj.onImage));
