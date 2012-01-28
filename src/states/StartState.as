@@ -8,6 +8,9 @@ package states
 	import org.flixel.FlxState;
 	import org.flixel.FlxText;
 	
+	import states.PlayState;
+	import sprites.GameAssets;
+	
 	public class StartState extends FlxState
 	{
 		public function StartState()
@@ -25,12 +28,14 @@ package states
 			
 			
 			//add(sprite);
+			FlxG.stage.addEventListener(MouseEvent.CLICK, onClick);
 			
-			//stage.addEventListener(MouseEvent.CLICK, onClick);
-			
-			trace("Hello world did you work");
 			add(new FlxText(0, 200, FlxG.width, "PUSH").setFormat(null, 18, 0xffffffff, "center"));
 			add(new FlxText(0, 300, FlxG.width, "ANYWHERE TO START").setFormat(null, 18, 0xd33bd1, "center"));
+			
+			var title:FlxSprite = new FlxSprite(0, 100, GameAssets.AlligatorSprite);
+			title.x = (FlxG.width * .5) - (title.width * .5);
+			add(title);
 		}
 		
 		/**
@@ -39,6 +44,7 @@ package states
 		 */
 		private function onClick(event:MouseEvent):void
 		{
+			FlxG.switchState(new PlayState());
 		}
 		
 		/**
@@ -46,7 +52,7 @@ package states
 		 */
 		override public function destroy():void
 		{
-			//stage.removeEventListener(MouseEvent.CLICK, onClick);
+			FlxG.stage.removeEventListener(MouseEvent.CLICK, onClick);
 			super.destroy();
 		}
 		
