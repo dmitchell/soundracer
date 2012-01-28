@@ -6,6 +6,7 @@ package model
 	import flash.utils.Timer;
 	
 	import mx.collections.ArrayCollection;
+	import mx.controls.Alert;
 
 	public class Game
 	{
@@ -19,6 +20,7 @@ package model
 		public var placedPieces : ArrayCollection = new ArrayCollection();
 		
 		public static const MUSIC_XML_NAME : String = "game_music";
+		public static const GAME_XML_NAME : String = "game_pieces";
 		
 		public function Game(musicConfigFilename : String, gameConfigFilename : String)
 		{
@@ -37,7 +39,17 @@ package model
 		
 		private function processConfig(event : Event) : void {
 			var configXml : XML = new XML(event.target.data);
-			if (String(configXml.name().localName).toLowerCase() == 
+			if (String(configXml.name().localName).toLowerCase() == MUSIC_XML_NAME) {
+				musicManager = new MusicManager(configXml);
+				lapDuration = parseInt(configXml.duration);
+			}
+			else if (String(configXml.name().localName).toLowerCase() == GAME_XML_NAME) {
+				
+			}
+			else {
+				Alert.show("Unknown xml type: " +  configXml.name().localName);
+			}
+			
 		}
 	}
 }

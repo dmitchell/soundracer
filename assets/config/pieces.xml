@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<game_music
-	<duration>360000</duration>
-	<track audio="beep.mp3" channel=0/>
-	<track audio="beep.mp3" channel=1/>
-</game_music>
+<game_pieces
+	<collision_obj image="parotOnGrass.jpg" off_image="parrotOnGrass.jpg" audio="beep.mp3" channel="4"
+	role="decrease_vol" life="-1" points="40"/>
+	<collision_obj image="parotOnGrass.jpg" off_image="parrotOnGrass.jpg" audio="beep.mp3" channel="5"
+	role="pan_left" life="1" points="4000"/>
+</game_pieces>
