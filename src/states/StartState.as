@@ -47,7 +47,7 @@ package states
 		override public function destroy():void
 		{
 			//stage.removeEventListener(MouseEvent.CLICK, onClick);
-			//super.destroy();
+			super.destroy();
 		}
 		
 	}
