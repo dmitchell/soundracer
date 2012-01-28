@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<game_pieces
-	<collision_obj image="parotOnGrass.jpg" off_image="parrotOnGrass.jpg" audio="beep.mp3" channel="4"
+<game_pieces>
+	<collision_obj image="parrotOnGrass.jpg" off_image="parrotOnGrass.jpg" audio="beep.mp3" channel="4"
 	role="decrease_vol" life="-1" points="40"/>
-	<collision_obj image="parotOnGrass.jpg" off_image="parrotOnGrass.jpg" audio="beep.mp3" channel="5"
+	<collision_obj image="parrotOnGrass.jpg" off_image="parrotOnGrass.jpg" audio="beep.mp3" channel="5"
 	role="pan_left" life="1" points="4000"/>
 </game_pieces>

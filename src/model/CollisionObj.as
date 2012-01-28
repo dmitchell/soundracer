@@ -1,24 +1,23 @@
 package model
 {
+	import flash.display.Loader;
 	import flash.media.Sound;
 	
-	import spark.components.Image;
-
 	public class CollisionObj
 	{
 		public static const ROLE_PLAY : String = "PLAY";
-		public static const ROLE_LOOP : String = "LOOP";
+		public static const ROLE_MUTE : String = "MUTE";
 		public static const ROLE_DECREASE_VOL : String = "DECREASE";
 		public static const ROLE_INCREASE_VOL : String = "INCREASE";
 		public static const ROLE_PAN_LEFT : String = "LEFT";
 		public static const ROLE_PAN_RIGHT : String = "LEFT";
 		
 		public var isOn : Boolean;
-		public var onImage : Image;
+		public var onImage : Loader;
 		/**
 		 * Optional arg if the image changes based on whether it's been hit 
 		 */
-		public var offImage : Image;
+		public var offImage : Loader;
 		/**
 		 * Which channel (track in MusicManager) is effected by collision 
 		 */

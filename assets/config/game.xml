@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<game_music
+<game_music>
 	<duration>360000</duration>
-	<track audio="beep.mp3" channel=0/>
-	<track audio="beep.mp3" channel=1/>
+	<track audio="beep.mp3" channel="0"/>
+	<track audio="beep.mp3" channel="1"/>
 </game_music>
