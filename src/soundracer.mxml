@@ -2,7 +2,25 @@
 <s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
 			   xmlns:s="library://ns.adobe.com/flex/spark" 
 			   xmlns:mx="library://ns.adobe.com/flex/mx" minWidth="955" minHeight="600">
+	
+	<fx:Script>
+		<![CDATA[
+			protected function playme_clickHandler(event:MouseEvent):void
+			{
+				var sound : Sound = new Sound(new URLRequest("sound/beep.mp3"));
+				sound.play();
+			}
+		]]>
+	</fx:Script>
+	
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
+	<s:VGroup>
+		<s:Label>
+			Hello world
+		</s:Label>
+		<s:Button label="play me" click="playme_clickHandler(event)"/>
+		<s:Image source="images/parrotOnGrass.jpg"/>
+	</s:VGroup>
 </s:Application>
