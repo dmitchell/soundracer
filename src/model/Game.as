@@ -1,11 +1,12 @@
 package model
 {
 	import flash.events.Event;
+	import flash.events.EventDispatcher;
 	import flash.net.URLLoader;
 	import flash.net.URLRequest;
 	import flash.utils.Timer;
 	
-	public class Game
+	public class Game extends EventDispatcher
 	{
 		public var lapDuration : int;
 		public var lapTimer : Timer;
@@ -40,9 +41,11 @@ package model
 			if (String(configXml.name().localName).toLowerCase() == MUSIC_XML_NAME) {
 				musicManager = new MusicManager(configXml);
 				lapDuration = parseInt(configXml.duration);
+				if (pieceLibrary) dispatchEvent(new Event(Event.COMPLETE));
 			}
 			else if (String(configXml.name().localName).toLowerCase() == GAME_XML_NAME) {
 				pieceLibrary = new PieceLibrary(configXml);
+				if (musicManager) dispatchEvent(new Event(Event.COMPLETE));
 			}
 			else {
 				trace("Unkonwn tag: " + configXml.name());

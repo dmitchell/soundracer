@@ -3,6 +3,8 @@ package model
 	import flash.display.Loader;
 	import flash.media.Sound;
 	
+	import org.flixel.FlxSprite;
+	
 	public class CollisionObj
 	{
 		public static const ROLE_PLAY : String = "PLAY";
@@ -12,12 +14,11 @@ package model
 		public static const ROLE_PAN_LEFT : String = "LEFT";
 		public static const ROLE_PAN_RIGHT : String = "LEFT";
 		
-		public var isOn : Boolean;
-		public var onImage : Loader;
+		public var onImage : Class;
 		/**
 		 * Optional arg if the image changes based on whether it's been hit 
 		 */
-		public var offImage : Loader;
+		public var offImage : Class;
 		/**
 		 * Which channel (track in MusicManager) is effected by collision 
 		 */

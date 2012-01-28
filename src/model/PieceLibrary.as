@@ -1,9 +1,9 @@
 package model
 {
-	import flash.display.Loader;
-	import flash.events.Event;
 	import flash.media.Sound;
 	import flash.net.URLRequest;
+	
+	import sprites.GameAssets;
 	
 	public class PieceLibrary
 	{
@@ -16,16 +16,12 @@ package model
 				var collisionSpec : XML = configXml.collision_obj[i];
 				
 				library[i] = collision;
-				trace(collisionSpec.attribute("image"));
 				if (collisionSpec.attribute("image").length() > 0) {
-					var imageLoader :Loader = new Loader();
-					imageLoader.load(new URLRequest("images/" + collisionSpec.@image));
-					collision.onImage = imageLoader;
+					trace(collisionSpec.@image + GameAssets.getClassByFilename(collisionSpec.@image));
+					collision.onImage = GameAssets.getClassByFilename(collisionSpec.@image);
 				}
 				if (collisionSpec.attribute("off_image").length() > 0) {
-					var imageLoader2 :Loader = new Loader();
-					imageLoader2.load(new URLRequest("images/" + collisionSpec.@off_image));
-					collision.offImage = imageLoader;
+					collision.offImage = GameAssets.getClassByFilename(collisionSpec.@off_image);
 				}
 				if (collisionSpec.attribute("audio").length() > 0) {
 					collision.audio = new Sound(new URLRequest("sound/" + collisionSpec.@audio));

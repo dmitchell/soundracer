@@ -1,18 +1,26 @@
 package states
 {
+	import flash.display.Bitmap;
+	import flash.events.Event;
 	import flash.events.MouseEvent;
+	import flash.media.Sound;
 	
+	import model.CollisionObj;
+	import model.Game;
 	
 	import org.flixel.FlxG;
 	import org.flixel.FlxSprite;
 	import org.flixel.FlxState;
 	import org.flixel.FlxText;
 	
-	import states.PlayState;
 	import sprites.GameAssets;
+	
+	import states.PlayState;
 	
 	public class StartState extends FlxState
 	{
+		public var game : Game;
+		
 		public function StartState()
 		{
 			super();
@@ -36,6 +44,31 @@ package states
 			var title:FlxSprite = new FlxSprite(0, 100, GameAssets.AlligatorSprite);
 			title.x = (FlxG.width * .5) - (title.width * .5);
 			add(title);
+			
+			game = new Game("config/game.xml", "config/pieces.xml"); 
+			game.addEventListener(Event.COMPLETE, showGameData);
+
+		}
+		
+		protected function showGameData(event:Event):void
+		{
+			add(new FlxText(0, 0, FlxG.width, "Duration: " + game.lapDuration));
+			var msg : String = "Music Manager: ";
+			for each (var track : Sound in game.musicManager) {
+				msg += track.bytesTotal + "bytes ";
+			}
+			add(new FlxText(0, 20, FlxG.width, msg));
+			
+			msg = "Pieces: ";
+			var y : int = 0;
+			for each (var obj : CollisionObj in game.pieceLibrary) {
+				msg += "C" + obj.channel + " Life " + obj.life + " points: " + obj.points + obj.role;
+				trace(obj.onImage, obj.offImage);
+				add(new FlxSprite(300, y, obj.onImage));
+				add(new FlxSprite(500, y, obj.offImage));
+				y += 200;
+			}
+			add(new FlxText(0, 40, FlxG.width, msg));
 		}
 		
 		/**
