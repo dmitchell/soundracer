@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<game_music>
+	<duration>153000</duration>
+	<track audio="soundracerTrack1.mp3" channel=1/>
+	<track audio="soundracerTrack2.mp3" channel=2/>
+</game_music>
