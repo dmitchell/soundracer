@@ -50,6 +50,7 @@ package states
 			
 			// Activate game by setting the correct state
 			gameState = GameStates.PLAYING;
+			lives = 10;
 			
 			// create player
 			player = add(new MainChar(0, calculateRow(3))) as MainChar;
@@ -188,11 +189,20 @@ package states
 				
 				/*
 				var monsterMembers:Array = MonsterGroup.members;
-				var i:int = 0;
-				while(i < monsterMembers.length)
+				var j:int = 0;
+				while(j < monsterMembers.length)
 				{
-					FlxG.overlap(monsterMembers[i], player, monsterCollision);
-					i++;
+					FlxG.overlap(monsterMembers[j], player, monsterCollision);
+					j++;
+				}*/
+				
+				/*
+				var friendMembers:Array = FriendGroup.members;
+				var friendIter:int = 0;
+				while(friendIter < friendMembers.length)
+				{
+					FlxG.overlap(friendMembers[friendIter], player, friendCollision);
+					friendIter++;
 				}*/
 				
 				// Regardless if the base was empty or occupied we still display the time it took to get there
@@ -209,25 +219,9 @@ package states
 			super.update();
 		}
 		
-		/**
-		 * This handles collision with a car.
-		 * @param target this instance that has collided with the player
-		 * @param player a reference to the player
-		 */
-		private function carCollision(target:FlxSprite, player:MainChar):void
+		private function monsterCollision(target:Monster, player:MainChar):void
 		{
-			if (gameState != GameStates.COLLISION)
-			{
-				//FlxG.play(GameAssets.FroggerSquashSound);
-				//lives--;
-				//livesText.text = "LIVES "+String(lives);
-				//killPlayer();
-			}
-		}
-		
-		private function monsterCollision(target:FlxSprite, player:MainChar):void
-		{
-			
+			target.visible = false;
 			//target.alive = false;
 			//target.destroy();
 			lives--;
@@ -235,15 +229,22 @@ package states
 			
 			if(lives <= 0)
 			{
-				restart();
+				//restart();
 			}
 		}
 		
-		private function friendCollision(target:FlxSprite, player:MainChar):void
+		private function friendCollision(target:Friend, player:MainChar):void
 		{
 			// if collides with friends
-			points++;
-			pointsText.text = "POINTS " + String(points);
+			/*if(target.isHit() == false)
+			{
+				points++;
+				pointsText.text = "POINTS " + String(points);
+			
+				target.setHit(true);
+				target.visible = false;
+				
+			}*/
 			
 		}
 		
