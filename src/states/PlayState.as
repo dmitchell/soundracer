@@ -66,14 +66,13 @@ package states
 			
 			// Activate game by setting the correct state
 			gameState = GameStates.PLAYING;
-			lives = 10;
+			lives = 3;
 			
 			// create player
 			player = add(new MainChar(0, calculateRow(3))) as MainChar;
 			
 			if(game.musicManager)
 			{
-				
 				game.musicManager.play();
 			} else {
 				
