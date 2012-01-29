@@ -40,7 +40,44 @@ package sprites
 				case "Purple Light Penguin.png": { return PurpleLightPenguin; break; }
 				case "Red Dark Penguin.png": { return RedDarkPenguin; break; }
 				case "Red Light Penguin.png": { return RedLightPenguin; break; }
-				
+			/*	
+				case "absbassA.wav": { return absbassA; break;}
+				case "absbassC.wav": { return absbassC; break;}
+				case "absbassD.wav": { return absbassD; break;}
+				case "absbassE.wav": { return absbassE; break;}
+				case "absbassG.wav": { return absbassG; break;}
+					
+				case "crystalA.wav": { return crystalA; break;}
+				case "crystalC.wav": { return crystalC; break;}
+				case "crystalD.wav": { return crystalD; break;}
+				case "crystalE.wav": { return crystalE; break;}
+				case "crystalG.wav": { return crystalG; break;}
+					
+				case "iceA.wav": { return iceA; break;}
+				case "iceC.wav": { return iceC; break;}
+				case "iceD.wav": { return iceD; break;}
+				case "iceE.wav": { return iceE; break;}
+				case "iceG.wav": { return iceG; break;}
+					
+				case "metalloA.wav": { return metalloA; break;}
+				case "metalloC.wav": { return metalloC; break;}
+				case "metalloD.wav": { return metalloD; break;}
+				case "metalloE.wav": { return metalloE; break;}
+				case "metalloG.wav": { return metalloG; break;}
+					
+				case "noiseleadA.wav": { return noiseleadA; break;}
+				case "noiseleadC.wav": { return noiseleadC; break;}
+				case "noiseleadD.wav": { return noiseleadD; break;}
+				case "noiseleadE.wav": { return noiseleadE; break;}
+				case "noiseleadG.wav": { return noiseleadG; break;}
+					
+				case "padA.wav": { return padA; break;}
+				case "padC.wav": { return padC; break;}
+				case "padD.wav": { return padD; break;}
+				case "padE.wav": { return padE; break;}
+				case "padG.wav": { return padG; break;}
+					
+				case "snakeSound.wav": { return snakeSound; break;}*/
 				
 				
 				default:
@@ -100,6 +137,99 @@ package sprites
 		
 		[Embed(source="assets/sounds/soundracerTrack1.mp3")]
 		public static var soundracerTrack1:Class;
+		
+		/*[Embed(source="assets/Sounds.swf", symbol="absbassA")]
+		public static var absbassA:Class;
+		
+		[Embed(source="assets/Sounds.swf", symbol="absbassC")]
+		public static var absbassC: Class;
+		
+		[Embed(source="assets/Sounds.swf", symbol="absbassD")]
+		public static var absbassD: Class;
+		
+		[Embed(source="assets/Sounds.swf", symbol="absbassE")]
+		public static var absbassE: Class;
+		
+		[Embed(source="assets/Sounds.swf", symbol="absbassG")]
+		public static var absbassG: Class;
+		
+		[Embed(source="assets/Sounds.swf", symbol="crystalA")]
+		public static var crystalA: Class;
+		
+		[Embed(source="assets/Sounds.swf", symbol="crystalC")]
+		public static var crystalC: Class;
+		
+		[Embed(source="assets/Sounds.swf", symbol="crystalD")]
+		public static var crystalD: Class;
+		
+		[Embed(source="assets/Sounds.swf", symbol="crystalE")]
+		public static var crystalE: Class;
+		
+		[Embed(source="assets/Sounds.swf", symbol="crystalG")]
+		public static var crystalG: Class;
+		
+		[Embed(source="assets/Sounds.swf", symbol="iceA")]
+		public static var iceA: Class;
+		
+		[Embed(source="assets/Sounds.swf", symbol="iceC")]
+		public static var iceC: Class;
+		
+		[Embed(source="assets/Sounds.swf", symbol="iceD")]
+		public static var iceD: Class;
+		
+		[Embed(source="assets/Sounds.swf", symbol="iceE")]
+		public static var iceE: Class;
+		
+		[Embed(source="assets/Sounds.swf", symbol="iceG")]
+		public static var iceG: Class;
+		
+		[Embed(source="assets/Sounds.swf", symbol="metalloA")]
+		public static var metalloA: Class;
+		
+		[Embed(source="assets/Sounds.swf", symbol="metalloC")]
+		public static var metalloC: Class;
+		
+		[Embed(source="assets/Sounds.swf", symbol="metalloD")]
+		public static var metalloD: Class;
+		
+		[Embed(source="assets/Sounds.swf", symbol="metalloE")]
+		public static var metalloE: Class;
+		
+		[Embed(source="assets/Sounds.swf", symbol="metalloG")]
+		public static var metalloG: Class;
+		
+		[Embed(source="assets/Sounds.swf", symbol="noiseleadA")]
+		public static var noiseleadA: Class;
+		
+		[Embed(source="assets/Sounds.swf", symbol="noiseleadC")]
+		public static var noiseleadC: Class;
+		
+		[Embed(source="assets/Sounds.swf", symbol="noiseleadD")]
+		public static var noiseleadD: Class;
+		
+		[Embed(source="assets/Sounds.swf", symbol="noiseleadE")]
+		public static var noiseleadE: Class;
+		
+		[Embed(source="assets/Sounds.swf", symbol="noiseleadG")]
+		public static var noiseleadG: Class;
+		
+		[Embed(source="assets/Sounds.swf", symbol="padA")]
+		public static var padA: Class;
+		
+		[Embed(source="assets/Sounds.swf", symbol="padC")]
+		public static var padC: Class;
+		
+		[Embed(source="assets/Sounds.swf", symbol="padD")]
+		public static var padD: Class;
+		
+		[Embed(source="assets/Sounds.swf", symbol="padE")]
+		public static var padE: Class;
+		
+		[Embed(source="assets/Sounds.swf", symbol="padG")]
+		public static var padG: Class;
+		
+		[Embed(source="assets/Sounds.swf", symbol="snakeSound")]
+		public static var snakeSound: Class;*/
 		
 		
 		

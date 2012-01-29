@@ -65,7 +65,8 @@ package states
 			
 			gameTime = 60 * FlxG.framerate;
 			
-			FlxG.play(GameAssets.soundracerTrack1);
+			
+			game.musicManager.play();
 			
 			// create messages and objs
 			createGameMessages();
@@ -87,10 +88,10 @@ package states
 			//gameMessageGroup.add(messageBG);
 			
 			// Message text
-			messageText = new FlxText(150, 30, 150, "").setFormat(null, 18, 0xffff00000, "center");
-			timeText = new FlxText(0, 4, 150, "TIME 99").setFormat(null, 18, 0xffff00000, "center");
-			livesText = new FlxText(150, 4, 150, "LIVES "+String(lives)).setFormat(null, 18, 0xffff00000, "center");
-			pointsText = new FlxText(320, 4, 150, "POINTS " + String(points)).setFormat(null, 18, 0xfff00000, "center");
+			messageText = new FlxText(150, 30, 150, "").setFormat(null, 18, 0x191970, "center");
+			timeText = new FlxText(0, 4, 150, "TIME 99").setFormat(null, 18, 0x191970, "center");
+			livesText = new FlxText(150, 4, 150, "LIVES "+String(lives)).setFormat(null, 18, 0x191970, "center");
+			pointsText = new FlxText(320, 4, 150, "POINTS " + String(points)).setFormat(null, 18, 0x191970, "center");
 			
 			gameMessageGroup.add(messageText);
 			gameMessageGroup.add(timeText);
