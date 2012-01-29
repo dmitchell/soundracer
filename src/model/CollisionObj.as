@@ -28,7 +28,7 @@ package model
 		 *  enum from class's ROLE consts: play, loop, decrease, increase, left, right
 		 */
 		public var role : String;
-		public var audio : Sound;
+		public var audio : String;
 		
 		public var points : int;
 		public var life : int;

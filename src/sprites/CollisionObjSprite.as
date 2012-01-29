@@ -50,14 +50,14 @@ package sprites
 				}
 				this.alpha = 0;
 				effectOn = !effectOn;
+				
+								
 			}
 			
 			public function setPlayedEffect(bool:Boolean):void
 			{
 				playedEffect = true;
-	
-				// PLAY SOUND HERE
-				FlxG.play(GameAssets.soundracerTrack1);
+				FlxG.play(GameAssets.getClassByFilename(obj.audio), 5);
 			}
 			
 			
@@ -83,9 +83,7 @@ package sprites
 					if(y < TOON_HEIGHT && playedEffect == false && effectOn)
 					{
 						// play effect
-						
-						var soundEffect:Sound = obj.audio;
-						FlxG.play(GameAssets.soundracerTrack1);
+						FlxG.play(GameAssets.getClassByFilename(obj.audio), 5);
 					}
 					
 					

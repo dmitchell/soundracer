@@ -68,8 +68,12 @@ package states
 			
 			gameTime = 60 * FlxG.framerate;
 			
-			
-			game.musicManager.play();
+			if(game.musicManager)
+			{
+				game.musicManager.play();
+			} else {
+				FlxG.play(GameAssets.soundracerTrack1);
+			}
 			
 			// create messages and objs
 			createGameMessages();
@@ -202,7 +206,7 @@ package states
 				trace("hit: " + target.obj + target.obj.life + "," + target.obj.points);
 				lives = lives + target.obj.life;
 				livesText.text = "LIVES "+String(lives);
-				
+
 				points = points + target.obj.points;
 				pointsText.text = "POINTS " + String(points);
 				

@@ -4,8 +4,8 @@
     <collision_obj audio="metalloA.wav" image="Blue Light Penguin.png" off_image="Blue Dark Penguin.png" channel="1" role="play" points="25"/>
     <collision_obj audio="metalloC.wav" image="Blue Light Penguin.png" off_image="Blue Dark Penguin.png" channel="2" role="play" points="25"/>
     <collision_obj audio="metalloD.wav" image="Blue Light Penguin.png" off_image="Blue Dark Penguin.png" channel="3" role="play" points="25"/>
-    <collision_obj audio="metalloE.wav" image="Blue Light Penguin.png" off_image="Blue Dark Penguin.png" channel="4"role="play" points="25"/>
-    <collision_obj audio="metalloG.wav" image="Blue Light Penguin.png" off_image="Blue Dark Penguin.png" channel="5"role="play" points="25"/>
+    <collision_obj audio="metalloE.wav" image="Blue Light Penguin.png" off_image="Blue Dark Penguin.png" channel="4" role="play" points="25"/>
+    <collision_obj audio="metalloG.wav" image="Blue Light Penguin.png" off_image="Blue Dark Penguin.png" channel="5" role="play" points="25"/>
             
     <collision_obj audio="padA.wav" image="Green Light Penguin.png" off_image="Green Dark Penguin.png" channel="6" role="play" points="25"/>
 	<collision_obj audio="padC.wav" image="Green Light Penguin.png" off_image="Green Dark Penguin.png" channel="7" role="play" points="25"/>

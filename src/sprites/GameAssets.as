@@ -77,7 +77,7 @@ package sprites
 				case "padE.wav": { return padE; break;}
 				case "padG.wav": { return padG; break;}
 					
-				case "snakeSound.wav": { return snakeSound; break;}
+				case "snake.wav": { return snakeSound; break;}
 				
 				
 				default:
