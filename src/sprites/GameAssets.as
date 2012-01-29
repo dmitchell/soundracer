@@ -78,6 +78,7 @@ package sprites
 				case "padG.wav": { return padG; break;}
 					
 				case "snake.wav": { return snakeSound; break;}
+				case "chime.wav": { return chime; break;}
 				
 				
 				default:
@@ -231,6 +232,8 @@ package sprites
 		[Embed(source="assets/Sounds.swf", symbol="snakeSound")]
 		public static var snakeSound: Class;
 		
+		[Embed(source="assets/Sounds.swf", symbol="chime")]
+		public static var chime:Class;
 		
 		
 		[Embed(source="assets/alligator_sprites.png")]
