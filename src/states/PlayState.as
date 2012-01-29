@@ -1,8 +1,11 @@
 package states
 {
 
+	import flash.events.TextEvent;
+	import flash.events.TimerEvent;
 	import flash.media.Sound;
 	import flash.net.URLRequest;
+	import flash.utils.Timer;
 	
 	import model.CollisionObj;
 	import model.Game;
@@ -69,6 +72,9 @@ package states
 			createGameMessages();
 			
 			createInitialPieces();
+			var placeNewPiecesTimer : Timer = new Timer(game.lapDuration, 9);
+			placeNewPiecesTimer.addEventListener(TimerEvent.TIMER, addPieces);
+			placeNewPiecesTimer.start();
 		}
 		
 		public function createGameMessages():void
@@ -101,16 +107,23 @@ package states
 		public function createInitialPieces():void
 		{
 			collisionPieces = add(new FlxGroup()) as FlxGroup;
+			createPieces(153/3);
+		}
+		private function createPieces( number : int ) : void {
+			trace("Add " + number );
 			var pieceCount : int = game.pieceLibrary.library.length;
 			
-			for(var i:int = 0; i < 153/4; i++)
+			for(var i:int = 0; i < number; i++)
 			{
 				var index : int = Math.random() * pieceCount;
 				var template : CollisionObj = game.pieceLibrary.library[index];
-				var x:int = Math.random()*480;
+				var x:int = Math.random()*420;
 				var y:int = int(Math.random() * FlxG.height);
 				collisionPieces.add(new CollisionObjSprite(template, x, y, 0, 0, 1));
 			}
+		}
+		private function addPieces(e : TimerEvent = null) : void {
+			createPieces(153/6);
 		}
 		
 		/**
