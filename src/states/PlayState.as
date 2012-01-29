@@ -109,7 +109,7 @@ package states
 		public function createInitialPieces():void
 		{
 			collisionPieces = add(new FlxGroup()) as FlxGroup;
-			createPieces(153/3);
+			createPieces(16/3);
 		}
 		private function createPieces( number : int ) : void {
 			trace("Add " + number );
@@ -134,7 +134,7 @@ package states
 			}
 		}
 		private function addPieces(e : TimerEvent = null) : void {
-			createPieces(153/6);
+			createPieces(16/6);
 		}
 		
 		/**
@@ -206,7 +206,7 @@ package states
 				pointsText.text = "POINTS " + String(points);
 				
 				target.toggleEffect();
-				target.setPlayedEffect(true);
+				target.setPlayedEffect();
 				if(lives <= 0)
 				{
 					restart();

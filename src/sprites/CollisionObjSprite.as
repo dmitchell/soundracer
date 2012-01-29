@@ -54,7 +54,7 @@ package sprites
 								
 			}
 			
-			public function setPlayedEffect(bool:Boolean):void
+			public function setPlayedEffect():void
 			{
 				playedEffect = true;
 				FlxG.play(GameAssets.getClassByFilename(obj.audio), 5);
@@ -82,8 +82,7 @@ package sprites
 					// toon height may have to be re-calculated
 					if(y < TOON_HEIGHT && playedEffect == false && effectOn)
 					{
-						// play effect
-						FlxG.play(GameAssets.getClassByFilename(obj.audio), 5);
+						setPlayedEffect();
 					}
 					
 					
