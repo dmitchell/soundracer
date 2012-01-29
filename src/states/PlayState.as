@@ -29,7 +29,7 @@ package states
 		private var gameMessageGroup:FlxGroup;
 		private var hideGameMessageDelay:int = -1;
 		
-		private var gameTime:int = 0;
+		private var gameTimer : Timer;
 		private var timer:int = 0;
 		
 		private var lives:int = 10;
@@ -61,8 +61,6 @@ package states
 			// create player
 			player = add(new MainChar(0, calculateRow(3))) as MainChar;
 			
-			gameTime = 60 * FlxG.framerate;
-			
 			if(game.musicManager)
 			{
 				game.musicManager.play();
@@ -74,9 +72,18 @@ package states
 			createGameMessages();
 			
 			createInitialPieces();
-			var placeNewPiecesTimer : Timer = new Timer(game.lapDuration, 9);
+			var placeNewPiecesTimer : Timer = new Timer(game.lapDuration, 0);
 			placeNewPiecesTimer.addEventListener(TimerEvent.TIMER, addPieces);
 			placeNewPiecesTimer.start();
+			
+			gameTimer = new Timer(1000, 0);
+			gameTimer.addEventListener(TimerEvent.TIMER, updateTime);
+			gameTimer.start();
+		}
+		
+		protected function updateTime(event:TimerEvent):void
+		{
+			timeText.text = "TIME " + gameTimer.currentCount;
 		}
 		
 		public function createGameMessages():void
@@ -94,7 +101,7 @@ package states
 			
 			// Message text
 			messageText = new FlxText(150, 30, 150, "").setFormat(null, 18, 0x191970, "center");
-			timeText = new FlxText(0, 4, 150, "TIME 99").setFormat(null, 18, 0x191970, "center");
+			timeText = new FlxText(0, 4, 150, "TIME 0").setFormat(null, 18, 0x191970, "center");
 			livesText = new FlxText(150, 4, 150, "LIVES "+String(lives)).setFormat(null, 18, 0x191970, "center");
 			pointsText = new FlxText(320, 4, 150, "POINTS " + String(points)).setFormat(null, 18, 0x191970, "center");
 			
@@ -178,10 +185,6 @@ package states
 			{
 				// Do collision detections
 				FlxG.overlap(collisionPieces, player, collide);
-				
-				// Regardless if the base was empty or occupied we still display the time it took to get there
-				gameTime++;
-				timeText.text = "TIME " + String(int(gameTime / FlxG.framerate) );
 			}
 			else if (gameState == GameStates.DEATH_OVER)
 			{
