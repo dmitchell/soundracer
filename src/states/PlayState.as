@@ -68,9 +68,6 @@ package states
 				FlxG.play(GameAssets.soundracerTrack1);
 			}
 			
-			// create messages and objs
-			createGameMessages();
-			
 			createInitialPieces();
 			var placeNewPiecesTimer : Timer = new Timer(game.lapDuration, 0);
 			placeNewPiecesTimer.addEventListener(TimerEvent.TIMER, addPieces);
@@ -79,6 +76,9 @@ package states
 			gameTimer = new Timer(1000, 0);
 			gameTimer.addEventListener(TimerEvent.TIMER, updateTime);
 			gameTimer.start();
+
+			// create messages and objs
+			createGameMessages();
 		}
 		
 		protected function updateTime(event:TimerEvent):void
