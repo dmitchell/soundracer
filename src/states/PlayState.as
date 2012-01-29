@@ -38,6 +38,7 @@ package states
 		
 		public var speed:int;
 		
+		
 		/**
 		 * This is the main level of Frogger.
 		 */
@@ -72,8 +73,10 @@ package states
 			
 			if(game.musicManager)
 			{
+				
 				game.musicManager.play();
 			} else {
+				
 				FlxG.play(GameAssets.soundracerTrack1);
 			}
 			
@@ -259,7 +262,6 @@ package states
 			// Make sure the player still has lives to restart
 			if (lives <= 0 && gameState != GameStates.GAME_OVER)
 			{
-				//game.musicManager.stop();
 				gameOver();
 			} 
 		}

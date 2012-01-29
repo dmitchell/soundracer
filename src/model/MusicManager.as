@@ -3,7 +3,9 @@ package model
 	import flash.media.AudioDecoder;
 	import flash.media.Sound;
 	import flash.net.URLRequest;
+	
 	import org.flixel.FlxG;
+	
 	import sprites.GameAssets;
 
 	public class MusicManager
@@ -31,11 +33,12 @@ package model
 			}
 		}
 		
-		public function stop():void{
+		public function stopMusic():void{
 			for(var i:int = 0; i < 32; i++)
 			{
 				if (tracks[i]) {
-					(tracks[i] as Sound).close();
+					var s:Sound = tracks[i];
+					s.close();
 				}
 			}
 		}
