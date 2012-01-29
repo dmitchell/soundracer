@@ -40,8 +40,10 @@ package sprites
 				{
 					loadGraphic(obj.onImage, false, false);
 				} else {
+					trace("off" + obj.offImage);
 					loadGraphic((obj.offImage? obj.offImage : obj.onImage), false, false);
 				}
+				this.alpha = 0;
 				effectOn = !effectOn;
 			}
 			
@@ -79,16 +81,15 @@ package sprites
 						
 					}
 					
-					// if at the bottom, reset playedEffect and image type
-					if(y >= topBounds+frameHeight) 
-					{
+					
+					// if at the very top, move penguins to bottom
+					if(y < (bottomBounds-frameHeight)) {
 						playedEffect = false;
+						y = topBounds - frameHeight;
 						this.visible = true;
 					}
 					
-					// if at the very top, move penguins to bottom
-					if(y < (bottomBounds-frameHeight))
-						y =topBounds+frameHeight;
+					if (this.alpha < 1) this.alpha += 0.01;
 					
 				}
 				
