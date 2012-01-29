@@ -1,6 +1,10 @@
 package sprites
 {
+	import flash.media.Sound;
+	
 	import model.CollisionObj;
+	
+	import org.flixel.FlxG;
 
 	public class CollisionObjSprite extends WrappingSprite
 	{
@@ -27,6 +31,7 @@ package sprites
 			{
 				obj = myObj;
 				effectOn = false;
+				playedEffect = false;
 				
 				super(x, y, null, direction, speed);
 				loadGraphic(obj.onImage, false, false);
@@ -37,15 +42,19 @@ package sprites
 			public function toggleEffect():void
 			{
 				effectOn = !effectOn;
-				this.visible = false;
+				//this.visible = false;
+				
+				loadGraphic(obj.onImage, false, false);
+				
 				
 			}
 			
 			public function setPlayedEffect(bool:Boolean):void
 			{
 				playedEffect = true;
+	
 				// PLAY SOUND HERE
-				
+				FlxG.play(GameAssets.soundracerTrack1);
 			}
 			
 			
@@ -68,11 +77,12 @@ package sprites
 					y -= speed;
 					
 					// toon height may have to be re-calculated
-					if(y < TOON_HEIGHT && playedEffect == false)
+					if(y < TOON_HEIGHT && playedEffect == false && effectOn)
 					{
 						// play effect
 						
-						
+						var soundEffect:Sound = obj.audio;
+						FlxG.play(GameAssets.soundracerTrack1);
 					}
 					
 					// if at the bottom, reset playedEffect and image type
@@ -88,6 +98,11 @@ package sprites
 							loadGraphic(obj.offImage, false, false);
 						}
 					}
+					
+					if(effectOn)
+						loadGraphic(obj.onImage, false, false);
+					else
+						loadGraphic(obj.offImage, false, false);
 					
 					// if at the very top, move penguins to bottom
 					if(y < (bottomBounds-frameHeight))

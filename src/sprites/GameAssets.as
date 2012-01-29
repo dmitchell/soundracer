@@ -34,8 +34,8 @@ package sprites
 				case "Gray Light Penguin.png": { return GrayLightPenguin; break; }
 				case "Green Dark Penguin.png": { return GreenDarkPenguin; break; }
 				case "Green Light Penguin.png": { return GreenLightPenguin; break; }
-				case "Orange DarkPenguin.png": { return OrangeDarkPenguin; break; }
-				case "Orange LightPenguin.png": { return OrangeLightPenguin; break; }
+				case "Orange Dark Penguin.png": { return OrangeDarkPenguin; break; }
+				case "Orange Light Penguin.png": { return OrangeLightPenguin; break; }
 				case "Purple Dark Penguin.png": { return PurpleDarkPenguin; break; }
 				case "Purple Light Penguin.png": { return PurpleLightPenguin; break; }
 				case "Red Dark Penguin.png": { return RedDarkPenguin; break; }
@@ -98,6 +98,8 @@ package sprites
 		[Embed(source="assets/images/background_start.png")]
 		public static var BackgroundStart:Class;
 		
+		[Embed(source="assets/sounds/soundracerTrack1.mp3")]
+		public static var soundracerTrack1:Class;
 		
 		
 		

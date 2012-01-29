@@ -64,6 +64,8 @@ package states
 			
 			gameTime = 60 * FlxG.framerate;
 			
+			FlxG.play(GameAssets.soundracerTrack1);
+			
 			// create messages and objs
 			createGameMessages();
 			createMonsterGroup();
