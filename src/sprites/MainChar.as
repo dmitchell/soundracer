@@ -71,11 +71,6 @@ package sprites
 		{
 			if (state.gameState == GameStates.PLAYING)
 			{
-				if(FlxG.keys.pressed("DOWN"))
-				{
-					
-					
-				}
 				
 				// Test to see if TargetX and Y are equal. If so, Frog is free to move.
 				if (Math.abs(targetX-x) < moveX && Math.abs(targetY-y) < moveY)
