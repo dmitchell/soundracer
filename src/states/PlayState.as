@@ -208,6 +208,8 @@ package states
 				}
 				// Do collision detections
 				FlxG.overlap(collisionPieces, player, collide);
+				pointsText.text = "POINTS " + String(points);
+
 			}
 			else if (gameState == GameStates.DEATH_OVER)
 			{
@@ -228,7 +230,6 @@ package states
 				livesText.text = "LIVES "+String(lives);
 
 				points = points + target.obj.points/2;
-				pointsText.text = "POINTS " + String(points);
 				
 				target.toggleEffect();
 				target.setPlayedEffect();
