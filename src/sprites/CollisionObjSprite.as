@@ -82,7 +82,8 @@ package sprites
 					// toon height may have to be re-calculated
 					if(y < TOON_HEIGHT && playedEffect == false && effectOn)
 					{
-						setPlayedEffect();
+						if (obj.life >= 0) setPlayedEffect();
+						else playedEffect = true;
 					}
 					
 					
