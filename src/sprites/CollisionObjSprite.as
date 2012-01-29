@@ -5,6 +5,8 @@ package sprites
 	import model.CollisionObj;
 	
 	import org.flixel.FlxG;
+	
+	import states.PlayState;
 
 	public class CollisionObjSprite extends WrappingSprite
 	{
@@ -18,6 +20,8 @@ package sprites
 			public var effectOn:Boolean = false;
 			public var playedEffect:Boolean = false;
 			
+			private var playState : PlayState;
+			
 			/**
 			 * Simple sprite to represent a car. There are 4 types of cars, represented by TYPE_A, _B,
 			 * _C, and _D constant.
@@ -27,7 +31,7 @@ package sprites
 			 * @param direction the direction the sprite will move in
 			 * @param speed the speed in pixels in which the sprite will move on update
 			 */
-			public function CollisionObjSprite(myObj:CollisionObj, x:Number, y:Number, type:int, direction:int, speed:int)
+			public function CollisionObjSprite(myObj:CollisionObj, x:Number, y:Number, type:int, direction:int, speed:int, playstate : PlayState)
 			{
 				obj = myObj;
 				effectOn = false;
@@ -37,6 +41,7 @@ package sprites
 				loadGraphic(obj.onImage, false, false);
 				
 				frame = type;
+				this.playState = playstate;
 			}
 			
 			public function toggleEffect():void
@@ -84,6 +89,7 @@ package sprites
 					if(y < TOON_HEIGHT && playedEffect == false && effectOn)
 					{
 						setPlayedEffect();
+						playState.points += obj.points;
 					}
 					
 					

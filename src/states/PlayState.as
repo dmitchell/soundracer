@@ -33,7 +33,7 @@ package states
 		private var timer:int = 0;
 		
 		private var lives:int = 10;
-		private var points:int = 0;
+		public var points:int = 0;
 		private var game : Game;
 		
 		/**
@@ -51,8 +51,14 @@ package states
 		override public function create():void
 		{
 			// Create the BG sprite
-			var bg:FlxSprite = new FlxSprite(0, 0, GameAssets.Background);
-			add(bg);
+			var bgBegin:WrappingSprite = new WrappingSprite(0, 0, GameAssets.BackgroundStart);
+			var bg:WrappingSprite = bgBegin;
+			for (var bottom : int = bg.height; bottom < FlxG.height; bottom += bg.height) {
+				bg = new WrappingSprite(0, bottom, GameAssets.Background);
+				add(bg);
+			}
+			// add here in order to keep on top
+			add(bgBegin);
 			
 			// Activate game by setting the correct state
 			gameState = GameStates.PLAYING;
@@ -116,7 +122,7 @@ package states
 		public function createInitialPieces():void
 		{
 			collisionPieces = add(new FlxGroup()) as FlxGroup;
-			createPieces(16/4, 2);
+			createPieces(24/4, 2);
 		}
 		private function createPieces( number : int, forceSnakes : int = 0 ) : void {
 			trace("Add " + number );
@@ -135,7 +141,7 @@ package states
 			{
 				var x0:int = Math.random()*420;
 				var y0:int = int(Math.random() * FlxG.height);
-				collisionPieces.add(new CollisionObjSprite(snake, x0, y0, 0, 0, 1));
+				collisionPieces.add(new CollisionObjSprite(snake, x0, y0, 0, 0, 1, this));
 			}
 			for(var i:int = 0; i < number; i++)
 			{
@@ -143,11 +149,11 @@ package states
 				var template : CollisionObj = (index >= pieceCount ? snake : game.pieceLibrary.library[index]);
 				var x:int = Math.random()*420;
 				var y:int = int(Math.random() * FlxG.height);
-				collisionPieces.add(new CollisionObjSprite(template, x, y, 0, 0, 1));
+				collisionPieces.add(new CollisionObjSprite(template, x, y, 0, 0, 1, this));
 			}
 		}
 		private function addPieces(e : TimerEvent = null) : void {
-			createPieces(16/6, 1);
+			createPieces(24/6, 1);
 		}
 		
 		/**
@@ -210,7 +216,7 @@ package states
 				lives = lives + target.obj.life;
 				livesText.text = "LIVES "+String(lives);
 
-				points = points + target.obj.points;
+				points = points + target.obj.points/2;
 				pointsText.text = "POINTS " + String(points);
 				
 				target.toggleEffect();
