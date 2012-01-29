@@ -2,5 +2,5 @@
 <!--does duration matter if we just loop it no matter what?-->
 <game_music>
 	<duration>153000</duration>
-	<track audio="soundracerTrack1.mp3" channel=32/>
+	<track audio="soundracerTrack1.mp3" channel="31"/>
 </game_music>
