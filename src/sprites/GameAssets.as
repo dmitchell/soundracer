@@ -28,6 +28,19 @@ package sprites
 				case "turtle_2_sprites.png": { return TurtlesSpriteImage; break; }
 				case "turtle_3_sprites.png": { return TurtlesBSpriteImage; break; }
 					
+				case "Blue Dark Penguin.png": { return BlueDarkPenguin; break; }
+				case "Blue Light Penguin.png": { return BlueLightPenguin; break; }
+				case "Gray Dark Penguin.png": { return GrayDarkPenguin; break; }
+				case "Gray Light Penguin.png": { return GrayLightPenguin; break; }
+				case "Green Dark Penguin.png": { return GreenDarkPenguin; break; }
+				case "Green Light Penguin.png": { return GreenLightPenguin; break; }
+				case "Orange DarkPenguin.png": { return OrangeDarkPenguin; break; }
+				case "Orange LightPenguin.png": { return OrangeLightPenguin; break; }
+				case "Purple Dark Penguin.png": { return PurpleDarkPenguin; break; }
+				case "Purple Light Penguin.png": { return PurpleLightPenguin; break; }
+				case "Red Dark Penguin.png": { return RedDarkPenguin; break; }
+				case "Red Light Penguin.png": { return RedLightPenguin; break; }
+				
 				default:
 				{
 					return AlligatorSprite;
@@ -47,6 +60,39 @@ package sprites
 		
 		[Embed(source="assets/images/penguin.png")]
 		public static var PenguinSprite:Class;
+		
+		[Embed(source="assets/images/Blue Dark Penguin.png")]
+		public static var BlueDarkPenguin:Class;
+		[Embed(source="assets/images/Blue Light Penguin.png")]
+		public static var BlueLightPenguin:Class;
+		
+		[Embed(source="assets/images/Gray Dark Penguin.png")]
+		public static var GrayDarkPenguin:Class;
+		[Embed(source="assets/images/Gray Light Penguin.png")]
+		public static var GrayLightPenguin:Class;
+		
+		[Embed(source="assets/images/Green Dark Penguin.png")]
+		public static var GreenDarkPenguin:Class;
+		[Embed(source="assets/images/Green Light Penguin.png")]
+		public static var GreenLightPenguin:Class;
+		
+		[Embed(source="assets/images/Orange Dark Penguin.png")]
+		public static var OrangeDarkPenguin:Class;
+		[Embed(source="assets/images/Orange Light Penguin.png")]
+		public static var OrangeLightPenguin:Class;
+		
+		[Embed(source="assets/images/Purple Dark Penguin.png")]
+		public static var PurpleDarkPenguin:Class;
+		[Embed(source="assets/images/Purple Light Penguin.png")]
+		public static var PurpleLightPenguin:Class;
+		
+		[Embed(source="assets/images/Red Dark Penguin.png")]
+		public static var RedDarkPenguin:Class;
+		[Embed(source="assets/images/Red Light Penguin.png")]
+		public static var RedLightPenguin:Class;
+		
+		
+		
 		
 		[Embed(source="assets/alligator_sprites.png")]
 		public static var AlligatorSprite:Class;
