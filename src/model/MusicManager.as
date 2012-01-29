@@ -30,5 +30,14 @@ package model
 				}
 			}
 		}
+		
+		public function stop():void{
+			for(var i:int = 0; i < 32; i++)
+			{
+				if (tracks[i]) {
+					(tracks[i] as Sound).close();
+				}
+			}
+		}
 	}
 }

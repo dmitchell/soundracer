@@ -259,6 +259,7 @@ package states
 			// Make sure the player still has lives to restart
 			if (lives <= 0 && gameState != GameStates.GAME_OVER)
 			{
+				//game.musicManager.stop();
 				gameOver();
 			} 
 		}
@@ -276,6 +277,7 @@ package states
 			messageText.visible = true;
 			messageText.text = "GAME OVER";
 			hideGameMessageDelay = 100;
+			
 			
 			collisionPieces.visible = false;
 		}
