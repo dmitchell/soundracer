@@ -25,9 +25,11 @@ package model
 				if (collisionSpec.attribute("audio").length() > 0) {
 					var filename : String = collisionSpec.@audio;
 					if (filename.search(".swf")) {
-						
+						collision.audio = GameAssets.getClassByFilename(collisionSpec.@audio) as Sound;
 					}
-					else collision.audio = new Sound(new URLRequest("sounds/" + collisionSpec.@audio));
+					else {
+						collision.audio = new Sound(new URLRequest("sounds/" + collisionSpec.@audio));
+					}
 				}
 				if (collisionSpec.attribute("channel").length() > 0) {
 					collision.channel = parseInt(collisionSpec.@channel);

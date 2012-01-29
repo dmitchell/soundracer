@@ -17,5 +17,13 @@ package model
 				tracks[channel] = loadedSound;
 			}
 		}
+		
+		public function play():void
+		{
+			for(var i:int = 0; i < 32; i++)
+			{
+				tracks[i].play(0,9);	
+			}
+		}
 	}
 }

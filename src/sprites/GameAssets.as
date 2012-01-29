@@ -40,7 +40,7 @@ package sprites
 				case "Purple Light Penguin.png": { return PurpleLightPenguin; break; }
 				case "Red Dark Penguin.png": { return RedDarkPenguin; break; }
 				case "Red Light Penguin.png": { return RedLightPenguin; break; }
-			/*	
+				
 				case "absbassA.wav": { return absbassA; break;}
 				case "absbassC.wav": { return absbassC; break;}
 				case "absbassD.wav": { return absbassD; break;}
@@ -77,7 +77,7 @@ package sprites
 				case "padE.wav": { return padE; break;}
 				case "padG.wav": { return padG; break;}
 					
-				case "snakeSound.wav": { return snakeSound; break;}*/
+				case "snakeSound.wav": { return snakeSound; break;}
 				
 				
 				default:
@@ -138,7 +138,7 @@ package sprites
 		[Embed(source="assets/sounds/soundracerTrack1.mp3")]
 		public static var soundracerTrack1:Class;
 		
-		/*[Embed(source="assets/Sounds.swf", symbol="absbassA")]
+		[Embed(source="assets/Sounds.swf", symbol="absbassA")]
 		public static var absbassA:Class;
 		
 		[Embed(source="assets/Sounds.swf", symbol="absbassC")]
@@ -229,7 +229,7 @@ package sprites
 		public static var padG: Class;
 		
 		[Embed(source="assets/Sounds.swf", symbol="snakeSound")]
-		public static var snakeSound: Class;*/
+		public static var snakeSound: Class;
 		
 		
 		
