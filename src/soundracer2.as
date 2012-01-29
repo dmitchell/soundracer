@@ -10,8 +10,8 @@ package
 	{
 		public function soundracer2()
 		{
-			// TODO load game info to get duration to compute height
 			trace("creating game");
+			// TODO load game info to get duration to compute height
 			// Create Flixel Game.
 			var height : int = 153000 * 60 / 1000; // msec * frames/msec
 			super(480, height, StartState, 1, 60);

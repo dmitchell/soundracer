@@ -45,7 +45,7 @@ package states
 			title.x = (FlxG.width * .5) - (title.width * .5);
 			add(title);
 			
-			game = new Game("config/game.xml", "config/pieces.xml"); 
+			game = new Game("config/soundRacerGame.xml", "config/soundRacerGamePieces.xml"); 
 			game.addEventListener(Event.COMPLETE, showGameData);
 
 		}
@@ -77,7 +77,7 @@ package states
 		 */
 		private function onClick(event:MouseEvent):void
 		{
-			FlxG.switchState(new PlayState());
+			FlxG.switchState(new PlayState(game));
 		}
 		
 		/**

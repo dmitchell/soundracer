@@ -85,7 +85,7 @@ package sprites
 						{
 							loadGraphic(obj.onImage, false, false);
 						} else {
-							loadGraphic(obj.offImage, false, false);
+							loadGraphic((obj.offImage? obj.offImage : obj.onImage), false, false);
 						}
 					}
 					
