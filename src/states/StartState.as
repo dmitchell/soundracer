@@ -31,19 +31,19 @@ package states
 		 */
 		override public function create():void
 		{
-			//var sprite:FlxSprite = new FlxSprite();
-			//sprite.createGraphic(FlxG.width, FlxG.height / 2, 0xff000047);
 			
-			
-			//add(sprite);
+			// splash screen
+			var splash:FlxSprite = new FlxSprite(0, 0, GameAssets.SplashScreen);
+			add(splash);
+
 			FlxG.stage.addEventListener(MouseEvent.CLICK, onClick);
 			
-			add(new FlxText(0, 200, FlxG.width, "PUSH").setFormat(null, 18, 0xffffffff, "center"));
-			add(new FlxText(0, 300, FlxG.width, "ANYWHERE TO START").setFormat(null, 18, 0xd33bd1, "center"));
+			//add(new FlxText(0, 200, FlxG.width, "PUSH").setFormat(null, 18, 0xffffffff, "center"));
+			//add(new FlxText(0, 300, FlxG.width, "ANYWHERE TO START").setFormat(null, 18, 0xd33bd1, "center"));
 			
-			var title:FlxSprite = new FlxSprite(0, 100, GameAssets.AlligatorSprite);
-			title.x = (FlxG.width * .5) - (title.width * .5);
-			add(title);
+			//var title:FlxSprite = new FlxSprite(0, 100, GameAssets.AlligatorSprite);
+			//title.x = (FlxG.width * .5) - (title.width * .5);
+			//add(title);
 			
 			game = new Game("config/soundRacerGame.xml", "config/soundRacerGamePieces.xml"); 
 

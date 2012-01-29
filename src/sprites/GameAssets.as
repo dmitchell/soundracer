@@ -93,6 +93,9 @@ package sprites
 		[Embed(source="assets/background.png")]
 		public static var LevelSprite:Class;
 		
+		[Embed(source="assets/images/splash.png")]
+		public static var SplashScreen:Class;
+		
 		[Embed(source="assets/lives.png")]
 		public static var LivesSprite:Class;
 		
