@@ -1,10 +1,10 @@
 package states
 {
 
-	import model.CollisionObj;
 	import flash.media.Sound;
 	import flash.net.URLRequest;
 	
+	import model.CollisionObj;
 	import model.Game;
 	
 	import org.flixel.*;
@@ -21,8 +21,7 @@ package states
 		private var CollisionObjSpriteGroup:FlxGroup;
 		private var player:MainChar;
 		
-		private var MonsterGroup:FlxGroup;
-		private var FriendGroup:FlxGroup
+		private var collisionPieces :FlxGroup;
 		
 		// messages
 		private var messageText:FlxText;
@@ -37,12 +36,14 @@ package states
 		
 		private var lives:int = 10;
 		private var points:int = 0;
+		private var game : Game;
 		
 		/**
 		 * This is the main level of Frogger.
 		 */
-		public function PlayState()
+		public function PlayState(game : Game)
 		{
+			this.game = game;
 			super();
 		}
 		
@@ -68,8 +69,8 @@ package states
 			
 			// create messages and objs
 			createGameMessages();
-			createMonsterGroup();
-			createFriendGroup();
+			
+			createInitialPieces();
 		}
 		
 		public function createGameMessages():void
@@ -99,37 +100,21 @@ package states
 			
 		}
 		
-		public function createMonsterGroup():void
+		public function createInitialPieces():void
 		{
-			MonsterGroup = add(new FlxGroup()) as FlxGroup;
+			collisionPieces = add(new FlxGroup()) as FlxGroup;
+			var pieceCount : int = game.pieceLibrary.library.length;
 			
-			var monsterObj:CollisionObj = new CollisionObj(GameAssets.SnakeSprite, GameAssets.SnakeSprite, 100, -1);
-			
-			for(var i:int = 0; i < 10; i++)
+			for(var i:int = 0; i < 153/4; i++)
 			{
-				var x:int = Math.random()*480
-				var y:int = calculateRow(1+int(Math.random()*50));
-				MonsterGroup.add(new Monster(monsterObj,x,y,1));
-			}
-			
-			
-		}
-		
-		public function createFriendGroup():void
-		{
-			FriendGroup = add(new FlxGroup()) as FlxGroup;
-			var friendObj:CollisionObj = new CollisionObj(GameAssets.PurpleDarkPenguin, GameAssets.PurpleLightPenguin, 50, 0);
-			
-			for(var i:int = 0; i < 15; i++)
-			{
-				var x:int = Math.random()*480
-				var y:int = calculateRow(1+int(Math.random()*50));
-				var f:Friend = new Friend(friendObj,x,y,1);
-				FriendGroup.add(f);
+				var index : int = Math.random() * pieceCount;
+				var template : CollisionObj = game.pieceLibrary.library[index];
+				var x:int = Math.random()*480;
+				var y:int = int(Math.random() * FlxG.height);
+				trace(template.onImage + "(" + x + ", " + y);
+				collisionPieces.add(new CollisionObjSprite(template, x, y, 0, 0, 1));
 			}
 		}
-		
-
 		
 		/**
 		 * Helper function to find the X position of a column on the game's grid
@@ -171,10 +156,7 @@ package states
 			else if (gameState == GameStates.PLAYING)
 			{
 				// Do collision detections
-				FlxG.overlap(MonsterGroup, player, collide);
-				FlxG.overlap(FriendGroup, player, collide);
-				
-
+				FlxG.overlap(collisionPieces, player, collide);
 				
 				// Regardless if the base was empty or occupied we still display the time it took to get there
 				gameTime++;
@@ -247,8 +229,7 @@ package states
 			messageText.text = "GAME OVER";
 			hideGameMessageDelay = 100;
 			
-			FriendGroup.visible = false;
-			MonsterGroup.visible = false;
+			collisionPieces.visible = false;
 		}
 	}
 }
