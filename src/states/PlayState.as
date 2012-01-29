@@ -36,12 +36,15 @@ package states
 		public var points:int = 0;
 		private var game : Game;
 		
+		public var speed:int;
+		
 		/**
 		 * This is the main level of Frogger.
 		 */
 		public function PlayState(game : Game)
 		{
 			this.game = game;
+			this.speed = 1;
 			super();
 		}
 		
@@ -51,10 +54,10 @@ package states
 		override public function create():void
 		{
 			// Create the BG sprite
-			var bgBegin:WrappingSprite = new WrappingSprite(0, 0, GameAssets.BackgroundStart);
+			var bgBegin:MovingSprite = new MovingSprite(0, 0, GameAssets.BackgroundStart);
 			var bg:WrappingSprite = bgBegin;
 			for (var bottom : int = bg.height; bottom < FlxG.height; bottom += bg.height) {
-				bg = new WrappingSprite(0, bottom, GameAssets.Background);
+				bg = new MovingSprite(0, bottom, GameAssets.Background);
 				add(bg);
 			}
 			// add here in order to keep on top
