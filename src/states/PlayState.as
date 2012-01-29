@@ -277,6 +277,8 @@ package states
 			messageText.text = "GAME OVER";
 			hideGameMessageDelay = 100;
 			
+			gameTimer.stop();
+			
 			collisionPieces.visible = false;
 		}
 	}
