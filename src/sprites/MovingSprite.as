@@ -25,7 +25,7 @@ package sprites
 				//y -= speed;
 				y -= (FlxG.state as PlayState).speed;
 				if(y < (bottomBounds-frameHeight)) {
-					y = topBounds - frameHeight;
+					y = topBounds + y; // - frameHeight;
 				}
 			}
 			
