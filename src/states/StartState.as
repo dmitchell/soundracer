@@ -46,7 +46,6 @@ package states
 			add(title);
 			
 			game = new Game("config/soundRacerGame.xml", "config/soundRacerGamePieces.xml"); 
-			game.addEventListener(Event.COMPLETE, showGameData);
 
 		}
 		

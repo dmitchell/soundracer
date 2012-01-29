@@ -53,30 +53,6 @@ package sprites
 			{
 				return;
 			}
-			else
-			{
-				// Add speed to instance's x based on direction
-				y += (facing == UP) ? speed : -speed;
-				
-				// Check to see if instance is out of bounds. If so, put it on the opposite side of the screen
-				if (y > (topBounds))
-				{
-					
-					if (facing == DOWN)
-					{
-						y = bottomBounds - frameHeight;
-					}
-					
-				}
-				else if (y < (bottomBounds - frameHeight))
-				{
-					
-					{
-						y = topBounds + frameHeight;
-					}
-				}
-				
-			}
 			
 			// Call update
 			super.update();

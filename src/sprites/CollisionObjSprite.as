@@ -41,12 +41,15 @@ package sprites
 			
 			public function toggleEffect():void
 			{
+				if(effectOn)
+				{
+					loadGraphic(obj.onImage, false, false);
+				} else {
+					trace("off" + obj.offImage);
+					loadGraphic((obj.offImage? obj.offImage : obj.onImage), false, false);
+				}
+				this.alpha = 0;
 				effectOn = !effectOn;
-				//this.visible = false;
-				
-				loadGraphic(obj.onImage, false, false);
-				
-				
 			}
 			
 			public function setPlayedEffect(bool:Boolean):void
@@ -85,28 +88,17 @@ package sprites
 						FlxG.play(GameAssets.soundracerTrack1);
 					}
 					
-					// if at the bottom, reset playedEffect and image type
-					if(y >= topBounds+frameHeight) 
-					{
-						playedEffect = false;
-						this.visible = true;
-						// at the bottom, set the image accordingly
-						if(effectOn)
-						{
-							loadGraphic(obj.onImage, false, false);
-						} else {
-							loadGraphic((obj.offImage? obj.offImage : obj.onImage), false, false);
-						}
-					}
-					
-					if(effectOn)
-						loadGraphic(obj.onImage, false, false);
-					else
-						loadGraphic(obj.offImage, false, false);
 					
 					// if at the very top, move penguins to bottom
-					if(y < (bottomBounds-frameHeight))
-						y =topBounds+frameHeight;
+					if(y < (bottomBounds-frameHeight)) {
+						playedEffect = false;
+						y = topBounds - frameHeight;
+						this.visible = true;
+					}
+					
+
+					if (this.alpha < 1) this.alpha += 0.01;
+
 					
 				}
 				

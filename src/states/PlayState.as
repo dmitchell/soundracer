@@ -116,10 +116,19 @@ package states
 			trace("Add " + number );
 			var pieceCount : int = game.pieceLibrary.library.length;
 			
+			
+			var snake : CollisionObj;
+			for each (var c : CollisionObj in game.pieceLibrary.library) {
+				if (c.life < 0) {
+					snake = c;
+					break;
+				}
+			}
+			
 			for(var i:int = 0; i < number; i++)
 			{
-				var index : int = Math.random() * pieceCount;
-				var template : CollisionObj = game.pieceLibrary.library[index];
+				var index : int = Math.random() * (pieceCount + 3);
+				var template : CollisionObj = (index >= pieceCount ? snake : game.pieceLibrary.library[index]);
 				var x:int = Math.random()*420;
 				var y:int = int(Math.random() * FlxG.height);
 				collisionPieces.add(new CollisionObjSprite(template, x, y, 0, 0, 1));
