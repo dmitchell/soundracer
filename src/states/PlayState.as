@@ -30,6 +30,7 @@ package states
 		private var hideGameMessageDelay:int = -1;
 		
 		private var gameTimer : Timer;
+		private var placeNewPiecesTimer : Timer
 		private var timer:int = 0;
 		
 		private var lives:int = 10;
@@ -78,7 +79,7 @@ package states
 			}
 			
 			createInitialPieces();
-			var placeNewPiecesTimer : Timer = new Timer(game.lapDuration, 0);
+			placeNewPiecesTimer = new Timer(game.lapDuration, 0);
 			placeNewPiecesTimer.addEventListener(TimerEvent.TIMER, addPieces);
 			placeNewPiecesTimer.start();
 			
@@ -281,6 +282,7 @@ package states
 			hideGameMessageDelay = 100;
 			
 			gameTimer.stop();
+			placeNewPiecesTimer.stop();
 			
 			collisionPieces.visible = false;
 		}
