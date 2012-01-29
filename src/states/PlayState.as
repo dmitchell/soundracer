@@ -1,18 +1,13 @@
 package states
 {
 
-	import flash.events.TextEvent;
 	import flash.events.TimerEvent;
-	import flash.media.Sound;
-	import flash.net.URLRequest;
 	import flash.utils.Timer;
 	
 	import model.CollisionObj;
 	import model.Game;
 	
 	import org.flixel.*;
-	import org.flixel.FlxSprite;
-	import org.flixel.FlxState;
 	
 	import sprites.*;
 	
