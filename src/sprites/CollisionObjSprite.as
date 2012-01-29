@@ -47,6 +47,7 @@ package sprites
 				} else {
 					trace("off" + obj.offImage);
 					loadGraphic((obj.offImage? obj.offImage : obj.onImage), false, false);
+					FlxG.play(GameAssets.chime, 5);
 				}
 				this.alpha = 0;
 				effectOn = !effectOn;
