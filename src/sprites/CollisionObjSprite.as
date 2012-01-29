@@ -5,6 +5,7 @@ package sprites
 	import model.CollisionObj;
 	
 	import org.flixel.FlxG;
+	import states.PlayState;
 
 	public class CollisionObjSprite extends WrappingSprite
 	{
@@ -44,10 +45,10 @@ package sprites
 				if(effectOn)
 				{
 					loadGraphic(obj.onImage, false, false);
+					FlxG.play(GameAssets.chime, 5);
 				} else {
 					trace("off" + obj.offImage);
 					loadGraphic((obj.offImage? obj.offImage : obj.onImage), false, false);
-					FlxG.play(GameAssets.chime, 5);
 				}
 				this.alpha = 0;
 				if (obj.life >= 0) effectOn = !effectOn;
@@ -78,7 +79,8 @@ package sprites
 				else
 				{
 					// Add speed to instance's x based on direction
-					y -= speed;
+					//y -= speed;
+					y -= (FlxG.state as PlayState).speed;
 					
 					// toon height may have to be re-calculated
 					if(y < TOON_HEIGHT && playedEffect == false && effectOn)

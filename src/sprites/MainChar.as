@@ -71,29 +71,23 @@ package sprites
 		{
 			if (state.gameState == GameStates.PLAYING)
 			{
-				/*
-				if ((FlxG.keys.justPressed("LEFT")) && x > 0)
+				if(FlxG.keys.pressed("DOWN"))
 				{
-					x -= moveX;
-					facing = LEFT;
+					
+					
 				}
-				else if ((FlxG.keys.justPressed("RIGHT")) && x < FlxG.width - frameWidth)
-				{
-					x += moveX;
-					facing = RIGHT;
-				}*/
 				
 				// Test to see if TargetX and Y are equal. If so, Frog is free to move.
 				if (Math.abs(targetX-x) < moveX && Math.abs(targetY-y) < moveY)
 				{
 					// Checks to see what key was just pressed and sets the target X or Y to the new position
 					// along with what direction to face
-					if ((FlxG.keys.justPressed("LEFT")) && x > 0)
+					if ((FlxG.keys.pressed("LEFT")) && x > 0)
 					{
 						targetX = x - maxMoveX;
 						facing = LEFT;
 					}
-					else if ((FlxG.keys.justPressed("RIGHT")) && x < FlxG.width - frameWidth)
+					else if ((FlxG.keys.pressed("RIGHT")) && x < FlxG.width - frameWidth)
 					{
 						targetX = x + maxMoveX;
 						facing = RIGHT;

@@ -36,12 +36,15 @@ package states
 		private var points:int = 0;
 		private var game : Game;
 		
+		public var speed:int;
+		
 		/**
 		 * This is the main level of Frogger.
 		 */
 		public function PlayState(game : Game)
 		{
 			this.game = game;
+			this.speed = 1;
 			super();
 		}
 		
