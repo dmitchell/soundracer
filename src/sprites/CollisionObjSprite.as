@@ -49,7 +49,7 @@ package sprites
 					loadGraphic((obj.offImage? obj.offImage : obj.onImage), false, false);
 				}
 				this.alpha = 0;
-				effectOn = !effectOn;
+				if (obj.life >= 0) effectOn = !effectOn;
 				
 								
 			}
@@ -82,8 +82,7 @@ package sprites
 					// toon height may have to be re-calculated
 					if(y < TOON_HEIGHT && playedEffect == false && effectOn)
 					{
-						if (obj.life >= 0) setPlayedEffect();
-						else playedEffect = true;
+						setPlayedEffect();
 					}
 					
 					

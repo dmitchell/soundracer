@@ -116,9 +116,9 @@ package states
 		public function createInitialPieces():void
 		{
 			collisionPieces = add(new FlxGroup()) as FlxGroup;
-			createPieces(16/3);
+			createPieces(16/4, 2);
 		}
-		private function createPieces( number : int ) : void {
+		private function createPieces( number : int, forceSnakes : int = 0 ) : void {
 			trace("Add " + number );
 			var pieceCount : int = game.pieceLibrary.library.length;
 			
@@ -130,7 +130,13 @@ package states
 					break;
 				}
 			}
-			
+
+			for(var s:int = 0; s < forceSnakes; s++)
+			{
+				var x0:int = Math.random()*420;
+				var y0:int = int(Math.random() * FlxG.height);
+				collisionPieces.add(new CollisionObjSprite(snake, x0, y0, 0, 0, 1));
+			}
 			for(var i:int = 0; i < number; i++)
 			{
 				var index : int = Math.random() * (pieceCount + 3);
@@ -141,7 +147,7 @@ package states
 			}
 		}
 		private function addPieces(e : TimerEvent = null) : void {
-			createPieces(16/6);
+			createPieces(16/6, 1);
 		}
 		
 		/**
@@ -201,7 +207,6 @@ package states
 		{
 			if(target.playedEffect == false)
 			{
-				trace("hit: " + target.obj + target.obj.life + "," + target.obj.points);
 				lives = lives + target.obj.life;
 				livesText.text = "LIVES "+String(lives);
 
