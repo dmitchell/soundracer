@@ -1,44 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <game_pieces>
 <!-- Amount of panning, increase and decrease of volume, will be determined (randomly) in the function -->
-    <collision_obj audio="metalloA.wav" image="Blue Light Penguin.png" off_image="Blue Dark Penguin.png" channel="1" role="play" points="25"/>
-    <collision_obj audio="metalloC.wav" image="Blue Light Penguin.png" off_image="Blue Dark Penguin.png" channel="2" role="play" points="25"/>
-    <collision_obj audio="metalloD.wav" image="Blue Light Penguin.png" off_image="Blue Dark Penguin.png" channel="3" role="play" points="25"/>
-    <collision_obj audio="metalloE.wav" image="Blue Light Penguin.png" off_image="Blue Dark Penguin.png" channel="4" role="play" points="25"/>
-    <collision_obj audio="metalloG.wav" image="Blue Light Penguin.png" off_image="Blue Dark Penguin.png" channel="5" role="play" points="25"/>
+    <collision_obj audio="metalloA.wav" off_image="Blue Light Penguin.png" image="Blue Dark Penguin.png" channel="1" role="play" points="25"/>
+    <collision_obj audio="metalloC.wav" off_image="Blue Light Penguin.png" image="Blue Dark Penguin.png" channel="2" role="play" points="25"/>
+    <collision_obj audio="metalloD.wav" off_image="Blue Light Penguin.png" image="Blue Dark Penguin.png" channel="3" role="play" points="25"/>
+    <collision_obj audio="metalloE.wav" off_image="Blue Light Penguin.png" image="Blue Dark Penguin.png" channel="4" role="play" points="25"/>
+    <collision_obj audio="metalloG.wav" off_image="Blue Light Penguin.png" image="Blue Dark Penguin.png" channel="5" role="play" points="25"/>
             
-    <collision_obj audio="padA.wav" image="Green Light Penguin.png" off_image="Green Dark Penguin.png" channel="6" role="play" points="25"/>
-	<collision_obj audio="padC.wav" image="Green Light Penguin.png" off_image="Green Dark Penguin.png" channel="7" role="play" points="25"/>
-    <collision_obj audio="padD.wav" image="Green Light Penguin.png" off_image="Green Dark Penguin.png" channel="8" role="play" points="25"/>
-    <collision_obj audio="padE.wav" image="Green Light Penguin.png" off_image="Green Dark Penguin.png" channel="9" role="play" points="25"/>
-    <collision_obj audio="padG.wav" image="Green Light Penguin.png" off_image="Green Dark Penguin.png" channel="10" role="play" points="25"/>
+    <collision_obj audio="padA.wav" off_image="Green Light Penguin.png" image="Green Dark Penguin.png" channel="6" role="play" points="25"/>
+	<collision_obj audio="padC.wav" off_image="Green Light Penguin.png" image="Green Dark Penguin.png" channel="7" role="play" points="25"/>
+    <collision_obj audio="padD.wav" off_image="Green Light Penguin.png" image="Green Dark Penguin.png" channel="8" role="play" points="25"/>
+    <collision_obj audio="padE.wav" off_image="Green Light Penguin.png" image="Green Dark Penguin.png" channel="9" role="play" points="25"/>
+    <collision_obj audio="padG.wav" off_image="Green Light Penguin.png" image="Green Dark Penguin.png" channel="10" role="play" points="25"/>
 
-    <collision_obj audio="crystalA.wav" image="Purple Light Penguin.png" off_image="Purple Dark Penguin.png" channel="11" role="play" points="25"/>
-    <collision_obj audio="crystalC.wav" image="Purple Light Penguin.png" off_image="Purple Dark Penguin.png" channel="12" role="play" points="25"/>
-    <collision_obj audio="crystalD.wav" image="Purple Light Penguin.png" off_image="Purple Dark Penguin.png" channel="13" role="play" points="25"/>
-    <collision_obj audio="crystalE.wav" image="Purple Light Penguin.png" off_image="Purple Dark Penguin.png" channel="14" role="play" points="25"/>
-    <collision_obj audio="crystalG.wav" image="Purple Light Penguin.png" off_image="Purple Dark Penguin.png" channel="15" role="play" points="25"/>
+    <collision_obj audio="crystalA.wav" off_image="Purple Light Penguin.png" image="Purple Dark Penguin.png" channel="11" role="play" points="25"/>
+    <collision_obj audio="crystalC.wav" off_image="Purple Light Penguin.png" image="Purple Dark Penguin.png" channel="12" role="play" points="25"/>
+    <collision_obj audio="crystalD.wav" off_image="Purple Light Penguin.png" image="Purple Dark Penguin.png" channel="13" role="play" points="25"/>
+    <collision_obj audio="crystalE.wav" off_image="Purple Light Penguin.png" image="Purple Dark Penguin.png" channel="14" role="play" points="25"/>
+    <collision_obj audio="crystalG.wav" off_image="Purple Light Penguin.png" image="Purple Dark Penguin.png" channel="15" role="play" points="25"/>
     
-    <collision_obj audio="absbassA.wav" image="Gray Light Penguin.png" off_image="Gray Dark Penguin.png" channel="16" role="play" points="25"/>
-    <collision_obj audio="absbassC.wav" image="Gray Light Penguin.png" off_image="Gray Dark Penguin.png" channel="17" role="play" points="25"/>
-    <collision_obj audio="absbassD.wav" image="Gray Light Penguin.png" off_image="Gray Dark Penguin.png" channel="18" role="play" points="25"/>
-    <collision_obj audio="absbassE.wav" image="Gray Light Penguin.png" off_image="Gray Dark Penguin.png" channel="19" role="play" points="25"/>
-    <collision_obj audio="absbassG.wav" image="Gray Light Penguin.png" off_image="Gray Dark Penguin.png" channel="20" role="play" points="25"/>
+    <collision_obj audio="absbassA.wav" off_image="Gray Light Penguin.png" image="Gray Dark Penguin.png" channel="16" role="play" points="25"/>
+    <collision_obj audio="absbassC.wav" off_image="Gray Light Penguin.png" image="Gray Dark Penguin.png" channel="17" role="play" points="25"/>
+    <collision_obj audio="absbassD.wav" off_image="Gray Light Penguin.png" image="Gray Dark Penguin.png" channel="18" role="play" points="25"/>
+    <collision_obj audio="absbassE.wav" off_image="Gray Light Penguin.png" image="Gray Dark Penguin.png" channel="19" role="play" points="25"/>
+    <collision_obj audio="absbassG.wav" off_image="Gray Light Penguin.png" image="Gray Dark Penguin.png" channel="20" role="play" points="25"/>
     
-    <collision_obj audio="iceA.wav" image="Red Light Penguin.png" off_image="Red Dark Penguin.png" channel="21" role="play" points="25"/>
-    <collision_obj audio="iceC.wav" image="Red Light Penguin.png" off_image="Red Dark Penguin.png" channel="22" role="play" points="25"/>
-    <collision_obj audio="iceD.wav" image="Red Light Penguin.png" off_image="Red Dark Penguin.png" channel="23" role="play" points="25"/>
-    <collision_obj audio="iceE.wav" image="Red Light Penguin.png" off_image="Red Dark Penguin.png" channel="24" role="play" points="25"/>
-    <collision_obj audio="iceG.wav" image="Red Light Penguin.png" off_image="Red Dark Penguin.png" channel="25" role="play" points="25"/>
+    <collision_obj audio="iceA.wav" off_image="Red Light Penguin.png" image="Red Dark Penguin.png" channel="21" role="play" points="25"/>
+    <collision_obj audio="iceC.wav" off_image="Red Light Penguin.png" image="Red Dark Penguin.png" channel="22" role="play" points="25"/>
+    <collision_obj audio="iceD.wav" off_image="Red Light Penguin.png" image="Red Dark Penguin.png" channel="23" role="play" points="25"/>
+    <collision_obj audio="iceE.wav" off_image="Red Light Penguin.png" image="Red Dark Penguin.png" channel="24" role="play" points="25"/>
+    <collision_obj audio="iceG.wav" off_image="Red Light Penguin.png" image="Red Dark Penguin.png" channel="25" role="play" points="25"/>
 
-    <collision_obj audio="noiseleadA.wav" image="Orange Light Penguin.png" off_image="Orange Dark Penguin.png" channel="26" role="play" points="25"/>
-    <collision_obj audio="noiseleadC.wav" image="Orange Light Penguin.png" off_image="Orange Dark Penguin.png" channel="27" role="play" points="25"/>
-    <collision_obj audio="noiseleadD.wav" image="Orange Light Penguin.png" off_image="Orange Dark Penguin.png" channel="28" role="play" points="25"/>
-    <collision_obj audio="noiseleadE.wav" image="Orange Light Penguin.png" off_image="Orange Dark Penguin.png" channel="29" role="play" points="25"/>
-    <collision_obj audio="noiseleadG.wav" image="Orange Light Penguin.png" off_image="Orange Dark Penguin.png" channel="30" role="play" points="25"/>
+    <collision_obj audio="noiseleadA.wav" off_image="Orange Light Penguin.png" image="Orange Dark Penguin.png" channel="26" role="play" points="25"/>
+    <collision_obj audio="noiseleadC.wav" off_image="Orange Light Penguin.png" image="Orange Dark Penguin.png" channel="27" role="play" points="25"/>
+    <collision_obj audio="noiseleadD.wav" off_image="Orange Light Penguin.png" image="Orange Dark Penguin.png" channel="28" role="play" points="25"/>
+    <collision_obj audio="noiseleadE.wav" off_image="Orange Light Penguin.png" image="Orange Dark Penguin.png" channel="29" role="play" points="25"/>
+    <collision_obj audio="noiseleadG.wav" off_image="Orange Light Penguin.png" image="Orange Dark Penguin.png" channel="30" role="play" points="25"/>
 
     
-	<!--monsters don't have off images, they trigger only once -->    
+	<!--monsters don't have off off_images, they trigger only once -->    
 	<collision_obj audio="snake.wav" image="snake.png" channel="31"
 	role="play" points="200" life="-1"/>	
 	

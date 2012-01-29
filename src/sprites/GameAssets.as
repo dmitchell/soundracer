@@ -14,6 +14,7 @@ package sprites
 					return LevelSprite;
 					break;
 				}
+				case "background_start.png": { return BackgroundStart; break; }
 				case "lives.png": { return LivesSprite; break; }
 				case "snake.png": { return SnakeSprite; break; }
 				case "penguin.png": { return PenguinSprite; break; }
