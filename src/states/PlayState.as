@@ -109,7 +109,6 @@ package states
 				var template : CollisionObj = game.pieceLibrary.library[index];
 				var x:int = Math.random()*480;
 				var y:int = int(Math.random() * FlxG.height);
-				trace(template.onImage + "(" + x + ", " + y);
 				collisionPieces.add(new CollisionObjSprite(template, x, y, 0, 0, 1));
 			}
 		}
@@ -175,6 +174,7 @@ package states
 		{
 			if(target.playedEffect == false)
 			{
+				trace("hit: " + target.obj + target.obj.life + "," + target.obj.points);
 				lives = lives + target.obj.life;
 				livesText.text = "LIVES "+String(lives);
 				
