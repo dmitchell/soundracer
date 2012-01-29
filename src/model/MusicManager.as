@@ -22,7 +22,7 @@ package model
 		{
 			for(var i:int = 0; i < 32; i++)
 			{
-				tracks[i].play(0,9);	
+				if (tracks[i]) tracks[i].play(0,9);	
 			}
 		}
 	}
