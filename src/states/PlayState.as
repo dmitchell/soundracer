@@ -1,5 +1,10 @@
 package states
 {
+	import flash.media.Sound;
+	import flash.net.URLRequest;
+	
+	import model.Game;
+	
 	import org.flixel.*;
 	import org.flixel.FlxSprite;
 	import org.flixel.FlxState;
@@ -238,10 +243,11 @@ package states
 				restart();
 			}
 		}
-		
+		private var ding : Sound = new Sound(new URLRequest("sounds/soundracerTrack1.mp3"));
 		private function friendCollision(target:FlxSprite, player:MainChar):void
 		{
 			// if collides with friends
+			ding.play();
 			points++;
 			pointsText.text = "POINTS " + String(points);
 			

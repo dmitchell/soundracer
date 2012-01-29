@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--does duration matter if we just loop it no matter what?-->
 <game_music>
 	<duration>153000</duration>
-	<track audio="soundracerTrack1.mp3" channel=1/>
-	<track audio="soundracerTrack2.mp3" channel=2/>
+	<track audio="soundracerTrack1.mp3" channel=32/>
 </game_music>
