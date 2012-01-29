@@ -36,9 +36,13 @@ package sprites
 			
 			public function toggleEffect():void
 			{
+				if(effectOn)
+				{
+					loadGraphic(obj.onImage, false, false);
+				} else {
+					loadGraphic((obj.offImage? obj.offImage : obj.onImage), false, false);
+				}
 				effectOn = !effectOn;
-				this.visible = false;
-				
 			}
 			
 			public function setPlayedEffect(bool:Boolean):void
@@ -80,13 +84,6 @@ package sprites
 					{
 						playedEffect = false;
 						this.visible = true;
-						// at the bottom, set the image accordingly
-						if(effectOn)
-						{
-							loadGraphic(obj.onImage, false, false);
-						} else {
-							loadGraphic((obj.offImage? obj.offImage : obj.onImage), false, false);
-						}
 					}
 					
 					// if at the very top, move penguins to bottom
