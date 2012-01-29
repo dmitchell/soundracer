@@ -1,25 +1,15 @@
 package sprites
 {
+	import model.CollisionObj;
 	public class Friend extends CollisionObjSprite
 	{
 		
-		private var hit:Boolean;
-		public function Friend(x:Number, y:Number, speed:int)
+		public function Friend(obj:CollisionObj,x:Number, y:Number, speed:int)
 		{
-			hit = false;
-			super(x, y, 0, 0, speed);
+			super(obj,x, y, 0, 0, speed);
 			
-			loadGraphic(GameAssets.PenguinSprite, false, false, 60, 60);
+			//loadGraphic(GameAssets.PenguinSprite, false, false);
 		}
 		
-		public function setHit(isHit:Boolean)
-		{
-			hit = isHit;
-		}
-		
-		public function isHit():Boolean
-		{
-			return hit;
-		}
 	}
 }

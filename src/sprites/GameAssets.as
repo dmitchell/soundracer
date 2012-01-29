@@ -41,6 +41,8 @@ package sprites
 				case "Red Dark Penguin.png": { return RedDarkPenguin; break; }
 				case "Red Light Penguin.png": { return RedLightPenguin; break; }
 				
+				
+				
 				default:
 				{
 					return AlligatorSprite;
@@ -90,6 +92,11 @@ package sprites
 		public static var RedDarkPenguin:Class;
 		[Embed(source="assets/images/Red Light Penguin.png")]
 		public static var RedLightPenguin:Class;
+		
+		[Embed(source="assets/images/background_plain.png")]
+		public static var Background:Class;
+		[Embed(source="assets/images/background_start.png")]
+		public static var BackgroundStart:Class;
 		
 		
 		

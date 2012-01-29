@@ -1,5 +1,7 @@
 package states
 {
+	import model.CollisionObj;
+	
 	import org.flixel.*;
 	import org.flixel.FlxSprite;
 	import org.flixel.FlxState;
@@ -45,7 +47,7 @@ package states
 		override public function create():void
 		{
 			// Create the BG sprite
-			var bg:FlxSprite = new FlxSprite(0, 0, GameAssets.LevelSprite);
+			var bg:FlxSprite = new FlxSprite(0, 0, GameAssets.Background);
 			add(bg);
 			
 			// Activate game by setting the correct state
@@ -59,7 +61,6 @@ package states
 			
 			// create messages and objs
 			createGameMessages();
-			//addCollisionObjs();
 			createMonsterGroup();
 			createFriendGroup();
 		}
@@ -95,11 +96,13 @@ package states
 		{
 			MonsterGroup = add(new FlxGroup()) as FlxGroup;
 			
+			var monsterObj:CollisionObj = new CollisionObj(GameAssets.SnakeSprite, GameAssets.SnakeSprite, 100, -1);
+			
 			for(var i:int = 0; i < 10; i++)
 			{
 				var x:int = Math.random()*480
 				var y:int = calculateRow(1+int(Math.random()*50));
-				MonsterGroup.add(new Monster(x,y,1));
+				MonsterGroup.add(new Monster(monsterObj,x,y,1));
 			}
 			
 			
@@ -108,36 +111,18 @@ package states
 		public function createFriendGroup():void
 		{
 			FriendGroup = add(new FlxGroup()) as FlxGroup;
+			var friendObj:CollisionObj = new CollisionObj(GameAssets.PurpleDarkPenguin, GameAssets.PurpleLightPenguin, 50, 0);
 			
 			for(var i:int = 0; i < 15; i++)
 			{
 				var x:int = Math.random()*480
 				var y:int = calculateRow(1+int(Math.random()*50));
-				var f:Friend = new Friend(x,y,1);
+				var f:Friend = new Friend(friendObj,x,y,1);
 				FriendGroup.add(f);
 			}
 		}
 		
-		public function addCollisionObjs():void
-		{
-			
-			// Create CollisionObjSprites
-			CollisionObjSpriteGroup = add(new FlxGroup()) as FlxGroup;
-			
-			CollisionObjSpriteGroup.add(new CollisionObjSprite(0, calculateRow(10), CollisionObjSprite.TYPE_C, 0, 1));
-			CollisionObjSpriteGroup.add(new CollisionObjSprite(270, calculateRow(10), CollisionObjSprite.TYPE_C, 0, 1));
-			
-			CollisionObjSpriteGroup.add(new CollisionObjSprite(0, calculateRow(11), CollisionObjSprite.TYPE_D, 0, 1));
-			CollisionObjSpriteGroup.add(new CollisionObjSprite(270, calculateRow(11), CollisionObjSprite.TYPE_D, 0, 1));
-			
-			CollisionObjSpriteGroup.add(new CollisionObjSprite(0, calculateRow(12), CollisionObjSprite.TYPE_B, 0, 1));
-			CollisionObjSpriteGroup.add(new CollisionObjSprite((CollisionObjSprite.SPRITE_WIDTH + 138) * 1, calculateRow(12), CollisionObjSprite.TYPE_B, 0, 1));
-			CollisionObjSpriteGroup.add(new CollisionObjSprite((CollisionObjSprite.SPRITE_WIDTH + 138) * 2, calculateRow(12), CollisionObjSprite.TYPE_B, 0, 1));
-			
-			CollisionObjSpriteGroup.add(new CollisionObjSprite(0, calculateRow(13), CollisionObjSprite.TYPE_A, 0, 1));
-			CollisionObjSpriteGroup.add(new CollisionObjSprite((CollisionObjSprite.SPRITE_WIDTH + 138) * 1, calculateRow(13), CollisionObjSprite.TYPE_A, 0, 1));
-			CollisionObjSpriteGroup.add(new CollisionObjSprite((CollisionObjSprite.SPRITE_WIDTH + 138) * 2, calculateRow(13), CollisionObjSprite.TYPE_A, 0, 1));
-		}
+
 		
 		/**
 		 * Helper function to find the X position of a column on the game's grid
@@ -176,34 +161,13 @@ package states
 					hideGameMessageDelay -= FlxG.elapsed;
 				}
 			}
-			else if (gameState == GameStates.LEVEL_OVER)
-			{
-				
-			}
 			else if (gameState == GameStates.PLAYING)
 			{
 				// Do collision detections
-				//FlxG.overlap(CollisionObjSpriteGroup,player, carCollision);
-				FlxG.overlap(MonsterGroup, player, monsterCollision);
-				FlxG.overlap(FriendGroup, player, friendCollision);
+				FlxG.overlap(MonsterGroup, player, collide);
+				FlxG.overlap(FriendGroup, player, collide);
 				
-				/*
-				var monsterMembers:Array = MonsterGroup.members;
-				var j:int = 0;
-				while(j < monsterMembers.length)
-				{
-					FlxG.overlap(monsterMembers[j], player, monsterCollision);
-					j++;
-				}*/
-				
-				/*
-				var friendMembers:Array = FriendGroup.members;
-				var friendIter:int = 0;
-				while(friendIter < friendMembers.length)
-				{
-					FlxG.overlap(friendMembers[friendIter], player, friendCollision);
-					friendIter++;
-				}*/
+
 				
 				// Regardless if the base was empty or occupied we still display the time it took to get there
 				gameTime++;
@@ -219,33 +183,24 @@ package states
 			super.update();
 		}
 		
-		private function monsterCollision(target:Monster, player:MainChar):void
-		{
-			target.visible = false;
-			//target.alive = false;
-			//target.destroy();
-			lives--;
-			livesText.text = "LIVES "+String(lives);
-			
-			if(lives <= 0)
-			{
-				//restart();
-			}
-		}
 		
-		private function friendCollision(target:Friend, player:MainChar):void
+		private function collide(target:CollisionObjSprite, player:MainChar):void
 		{
-			// if collides with friends
-			/*if(target.isHit() == false)
+			if(target.playedEffect == false)
 			{
-				points++;
-				pointsText.text = "POINTS " + String(points);
-			
-				target.setHit(true);
-				target.visible = false;
+				lives = lives + target.obj.life;
+				livesText.text = "LIVES "+String(lives);
 				
-			}*/
-			
+				points = points + target.obj.points;
+				pointsText.text = "POINTS " + String(points);
+				
+				target.toggleEffect();
+				target.setPlayedEffect(true);
+				if(lives <= 0)
+				{
+					restart();
+				}
+			}
 		}
 		
 		
