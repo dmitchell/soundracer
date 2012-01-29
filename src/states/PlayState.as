@@ -198,6 +198,14 @@ package states
 			}
 			else if (gameState == GameStates.PLAYING)
 			{
+				// change the speed if the speed increased
+				if(FlxG.keys.pressed("DOWN"))
+				{
+					speed = 5;	
+					
+				} else {
+					speed = 1;
+				}
 				// Do collision detections
 				FlxG.overlap(collisionPieces, player, collide);
 			}

@@ -47,7 +47,7 @@ package sprites
 				if(effectOn)
 				{
 					loadGraphic(obj.onImage, false, false);
-					FlxG.play(GameAssets.chime, 5);
+					FlxG.play(GameAssets.chime, 3);
 				} else {
 					loadGraphic((obj.offImage? obj.offImage : obj.onImage), false, false);
 				}
@@ -60,7 +60,13 @@ package sprites
 			public function setPlayedEffect():void
 			{
 				playedEffect = true;
-				FlxG.play(GameAssets.getClassByFilename(obj.audio), 5);
+				var volume:int = obj.life < 0 ? 20 : 5; // if snake make volume louder
+				FlxG.play(GameAssets.getClassByFilename(obj.audio), volume);
+				if(obj.life < 0) {
+					FlxG.play(GameAssets.getClassByFilename(obj.audio), 80);
+					FlxG.play(GameAssets.getClassByFilename(obj.audio), 80);
+					FlxG.play(GameAssets.getClassByFilename(obj.audio), 80);
+				}
 			}
 			
 			
