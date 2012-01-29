@@ -1,6 +1,11 @@
 package states
 {
+
 	import model.CollisionObj;
+	import flash.media.Sound;
+	import flash.net.URLRequest;
+	
+	import model.Game;
 	
 	import org.flixel.*;
 	import org.flixel.FlxSprite;

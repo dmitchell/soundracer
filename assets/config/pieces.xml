@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <game_pieces>
-	<collision_obj image="lives.png" off_image="snake.png" audio="beep.mp3" channel="4"
+	<collision_obj image="lives.png" off_image="snake.png" audio="soundracerTrack1.mp3" channel="4"
 	role="decrease_vol" life="-1" points="40"/>
-	<collision_obj image="penguin.png" off_image="car_sprites.png" audio="beep.mp3" channel="5"
+	<collision_obj image="penguin.png" off_image="car_sprites.png" audio="soundracerTrack1.mp3" channel="5"
 	role="pan_left" life="1" points="4000"/>
 </game_pieces>

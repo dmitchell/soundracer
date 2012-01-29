@@ -2,7 +2,7 @@ package model
 {
 	import flash.display.Loader;
 	import flash.media.Sound;
-	
+	import sprites.GameAssets;
 	import org.flixel.FlxSprite;
 	
 	public class CollisionObj
@@ -33,8 +33,12 @@ package model
 		public var points : int;
 		public var life : int;
 		
-		public function CollisionObj()
+		public function CollisionObj(onImage:Class=null, offImage:Class=null, points:int=0, life:int=0)
 		{
+			this.onImage = onImage;
+			this.offImage = offImage;
+			this.points = points;
+			this.life = life;
 		}
 	}
 }

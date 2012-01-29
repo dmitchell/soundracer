@@ -24,7 +24,7 @@ package model
 					collision.offImage = GameAssets.getClassByFilename(collisionSpec.@off_image);
 				}
 				if (collisionSpec.attribute("audio").length() > 0) {
-					collision.audio = new Sound(new URLRequest("sound/" + collisionSpec.@audio));
+					collision.audio = new Sound(new URLRequest("sounds/" + collisionSpec.@audio));
 				}
 				if (collisionSpec.attribute("channel").length() > 0) {
 					collision.channel = parseInt(collisionSpec.@channel);
