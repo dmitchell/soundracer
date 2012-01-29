@@ -259,7 +259,9 @@ package states
 			// Make sure the player still has lives to restart
 			if (lives <= 0 && gameState != GameStates.GAME_OVER)
 			{
-				//game.musicManager.stop();
+				if (game.musicManager) game.musicManager.stop();
+				else trace("Not valid");
+				
 				gameOver();
 			} 
 		}

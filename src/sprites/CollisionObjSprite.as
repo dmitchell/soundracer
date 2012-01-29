@@ -94,7 +94,6 @@ package sprites
 					{
 						setPlayedEffect();
 						playState.points += obj.points;
-						trace("inc'd points + " + obj.points + " = "  + playState.points);
 					}
 					
 					

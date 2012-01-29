@@ -2,14 +2,17 @@ package model
 {
 	import flash.media.AudioDecoder;
 	import flash.media.Sound;
+	import flash.media.SoundChannel;
 	import flash.net.URLRequest;
+	
 	import org.flixel.FlxG;
+	
 	import sprites.GameAssets;
 
 	public class MusicManager
 	{
 		public var tracks : Array = new Array(32);
-		
+		public var channels : Array = new Array(32);
 		
 		public function MusicManager(configXml : XML)
 		{
@@ -26,7 +29,7 @@ package model
 			for(var i:int = 0; i < 32; i++)
 			{
 				if (tracks[i]) {
-					(tracks[i] as Sound).play(0,99);	
+					channels[i] = (tracks[i] as Sound).play(0,99);	
 				}
 			}
 		}
@@ -35,7 +38,7 @@ package model
 			for(var i:int = 0; i < 32; i++)
 			{
 				if (tracks[i]) {
-					(tracks[i] as Sound).close();
+					(channels[i] as SoundChannel).stop();
 				}
 			}
 		}
