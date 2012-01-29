@@ -67,7 +67,7 @@ package states
 			
 			// Activate game by setting the correct state
 			gameState = GameStates.PLAYING;
-			lives = 3;
+			lives = 5;
 			
 			// create player
 			player = add(new MainChar(0, calculateRow(3))) as MainChar;
@@ -287,6 +287,14 @@ package states
 			placeNewPiecesTimer.stop();
 			
 			collisionPieces.visible = false;
+		}
+		
+		/**
+		 * This removed the click listener.
+		 */
+		override public function destroy():void
+		{
+			super.destroy();
 		}
 	}
 }
