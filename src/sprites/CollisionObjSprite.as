@@ -15,8 +15,8 @@ package sprites
 			import states.GameStates;
 			
 			public var obj:CollisionObj;
-			public var effectOn:Boolean;
-			public var playedEffect:Boolean;
+			public var effectOn:Boolean = false;
+			public var playedEffect:Boolean = false;
 			
 			/**
 			 * Simple sprite to represent a car. There are 4 types of cars, represented by TYPE_A, _B,

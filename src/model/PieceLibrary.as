@@ -17,7 +17,6 @@ package model
 				
 				library[i] = collision;
 				if (collisionSpec.attribute("image").length() > 0) {
-					trace(collisionSpec.@image + GameAssets.getClassByFilename(collisionSpec.@image));
 					collision.onImage = GameAssets.getClassByFilename(collisionSpec.@image);
 				}
 				if (collisionSpec.attribute("off_image").length() > 0) {
@@ -37,10 +36,10 @@ package model
 					collision.role = collisionSpec.@role;
 				}
 				if (collisionSpec.attribute("life").length() > 0) {
-					collision.channel = parseInt(collisionSpec.@life);
+					collision.life = parseInt(collisionSpec.@life);
 				}
 				if (collisionSpec.attribute("points").length() > 0) {
-					collision.channel = parseInt(collisionSpec.@points);
+					collision.points = parseInt(collisionSpec.@points);
 				}
 			}
 		}
