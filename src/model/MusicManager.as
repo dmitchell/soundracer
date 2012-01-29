@@ -1,7 +1,10 @@
 package model
 {
+	import flash.media.AudioDecoder;
 	import flash.media.Sound;
 	import flash.net.URLRequest;
+	import org.flixel.FlxG;
+	import sprites.GameAssets;
 
 	public class MusicManager
 	{
@@ -14,7 +17,7 @@ package model
 				var loadedSound : Sound = new Sound(new URLRequest("sounds/" + track.@audio));
 				var channel : int = parseInt(track.channel);
 				
-				tracks[channel] = loadedSound;
+				tracks[channel] = loadedSound;			
 			}
 		}
 		
@@ -22,7 +25,9 @@ package model
 		{
 			for(var i:int = 0; i < 32; i++)
 			{
-				if (tracks[i]) (tracks[i] as Sound).play(0,99);	
+				if (tracks[i]) {
+					(tracks[i] as Sound).play(0,99);	
+				}
 			}
 		}
 	}
