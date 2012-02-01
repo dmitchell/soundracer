@@ -15,7 +15,7 @@ package states
 	{
 		
 		public var gameState:uint;
-		private const TILE_SIZE:int = 40;
+		private const TILE_SIZE:int = 60;
 		private var CollisionObjSpriteGroup:FlxGroup;
 		private var player:MainChar;
 		
@@ -102,20 +102,14 @@ package states
 		{
 			// Create game message, this handles game over, time, and start message for player
 			gameMessageGroup = new FlxGroup();
-			//gameMessageGroup.x = (480 * .5) - (150 * .5);
-			//gameMessageGroup.y = calculateRow(8) + 5;
 			add(gameMessageGroup);
 			
-			// Black background for message
-			//var messageBG:FlxSprite = new FlxSprite(0, 0);
-			//messageBG.createGraphic(150, 30, 0xff000000);
-			//gameMessageGroup.add(messageBG);
 			
 			// Message text
 			messageText = new FlxText(150, 30, 150, "").setFormat(null, 18, 0x191970, "center");
 			timeText = new FlxText(0, 4, 150, "TIME 0").setFormat(null, 18, 0x191970, "center");
 			livesText = new FlxText(150, 4, 150, "LIVES "+String(lives)).setFormat(null, 18, 0x191970, "center");
-			pointsText = new FlxText(320, 4, 150, "POINTS " + String(points)).setFormat(null, 18, 0x191970, "center");
+			pointsText = new FlxText(300, 4, 150, "CHOIR SIZE: " + String(points)).setFormat(null, 18, 0x191970, "center");
 			
 			gameMessageGroup.add(messageText);
 			gameMessageGroup.add(timeText);
@@ -128,8 +122,9 @@ package states
 		public function createInitialPieces():void
 		{
 			collisionPieces = add(new FlxGroup()) as FlxGroup;
-			createPieces(24/4, 2);
+			createPieces(30, 10);
 		}
+		
 		private function createPieces( number : int, forceSnakes : int = 0 ) : void {
 			trace("Add " + number );
 			var pieceCount : int = game.pieceLibrary.library.length;
@@ -142,24 +137,30 @@ package states
 					break;
 				}
 			}
+			
+			var rand:int = FlxG.height/TILE_SIZE;
 
 			for(var s:int = 0; s < forceSnakes; s++)
 			{
-				var x0:int = Math.random()*420;
-				var y0:int = int(Math.random() * FlxG.height);
+				//var x0:int = Math.random()*420;
+				var x0:int = calculateColumn(Math.random()*8);
+				//var y0:int = int(Math.random() * FlxG.height);
+				var y0:int = calculateColumn(Math.random()*rand);
 				collisionPieces.add(new CollisionObjSprite(snake, x0, y0, 0, 0, 1, this));
 			}
 			for(var i:int = 0; i < number; i++)
 			{
 				var index : int = Math.random() * (pieceCount + 3);
 				var template : CollisionObj = (index >= pieceCount ? snake : game.pieceLibrary.library[index]);
-				var x:int = Math.random()*420;
-				var y:int = int(Math.random() * FlxG.height);
+				//var x:int = Math.random()*420;
+				var x:int = calculateColumn(Math.random()*12);
+				//var y:int = int(Math.random() * FlxG.height);
+				var y:int = calculateColumn(Math.random()*rand);
 				collisionPieces.add(new CollisionObjSprite(template, x, y, 0, 0, 1, this));
 			}
 		}
 		private function addPieces(e : TimerEvent = null) : void {
-			createPieces(24/6, 1);
+			createPieces(30, 10);
 		}
 		
 		/**
@@ -192,7 +193,7 @@ package states
 			{
 				if (hideGameMessageDelay == 0)
 				{
-					FlxG.switchState(new StartState());
+					FlxG.switchState(new EndState(points));
 				}
 				else
 				{
@@ -204,14 +205,17 @@ package states
 				// change the speed if the speed increased
 				if(FlxG.keys.pressed("DOWN"))
 				{
-					speed = 5;	
+					speed = 8;	
 					
-				} else {
+				} else if(FlxG.keys.pressed("UP")) 
+				{
 					speed = 1;
+				}else {
+					speed = 4;
 				}
 				// Do collision detections
 				FlxG.overlap(collisionPieces, player, collide);
-				pointsText.text = "POINTS " + String(points);
+				pointsText.text = "CHOIR SIZE: " + String(points);
 
 			}
 			else if (gameState == GameStates.DEATH_OVER)
@@ -232,10 +236,21 @@ package states
 				lives = lives + target.obj.life;
 				livesText.text = "LIVES "+String(lives);
 
-				points = points + target.obj.points/2;
 				
 				target.toggleEffect();
 				target.setPlayedEffect();
+				
+				if(target.obj.life < 0)
+				{
+					player.gotAttacked();
+				} else if (target.effectOn) {
+					// if we just turned the player on, we added them to our choir
+					points++;
+				} else {
+					// otherwise we remove them from our choir
+					points--;
+				}
+				
 				if(lives <= 0)
 				{
 					restart();
@@ -262,6 +277,7 @@ package states
 			// Make sure the player still has lives to restart
 			if (lives <= 0 && gameState != GameStates.GAME_OVER)
 			{
+				player.death();
 				if (game.musicManager) game.musicManager.stop();
 				else trace("Not valid");
 				
@@ -281,7 +297,7 @@ package states
 			
 			messageText.visible = true;
 			messageText.text = "GAME OVER";
-			hideGameMessageDelay = 100;
+			hideGameMessageDelay = 200;
 			
 			gameTimer.stop();
 			placeNewPiecesTimer.stop();

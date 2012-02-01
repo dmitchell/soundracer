@@ -96,6 +96,9 @@ package sprites
 		[Embed(source="assets/images/splash.png")]
 		public static var SplashScreen:Class;
 		
+		[Embed(source="assets/images/endscreen.png")]
+		public static var EndScreen:Class;
+		
 		[Embed(source="assets/lives.png")]
 		public static var LivesSprite:Class;
 		
@@ -104,6 +107,9 @@ package sprites
 		
 		[Embed(source="assets/images/penguin.png")]
 		public static var PenguinSprite:Class;
+		
+		[Embed(source="assets/images/injuredPenguin.png")]
+		public static var InjuredPenguin:Class;
 		
 		[Embed(source="assets/images/Blue Dark Penguin.png")]
 		public static var BlueDarkPenguin:Class;
@@ -238,6 +244,9 @@ package sprites
 		
 		[Embed(source="assets/Sounds.swf", symbol="chime")]
 		public static var chime:Class;
+		
+		[Embed(source="assets/sounds/endcredit.mp3")]
+		public static var endCreditSong:Class;
 		
 		
 		[Embed(source="assets/alligator_sprites.png")]

@@ -60,9 +60,15 @@ package sprites
 			public function setPlayedEffect():void
 			{
 				playedEffect = true;
-				var volume:int = obj.life < 0 ? 20 : 5; // if snake make volume louder
-				FlxG.play(GameAssets.getClassByFilename(obj.audio), volume);
-				if(obj.life < 0) {
+
+				if(obj.life > 0)
+				{
+					// hackish way to make the sound fuller
+					FlxG.play(GameAssets.getClassByFilename(obj.audio), 3);
+					FlxG.play(GameAssets.getClassByFilename(obj.audio), 3);
+					FlxG.play(GameAssets.getClassByFilename(obj.audio), 3);
+				}
+				else {
 					FlxG.play(GameAssets.getClassByFilename(obj.audio), 80);
 					FlxG.play(GameAssets.getClassByFilename(obj.audio), 80);
 					FlxG.play(GameAssets.getClassByFilename(obj.audio), 80);
@@ -93,7 +99,7 @@ package sprites
 					if(y < TOON_HEIGHT && playedEffect == false && effectOn)
 					{
 						setPlayedEffect();
-						playState.points += obj.points;
+						//playState.points += obj.points;
 					}
 					
 					

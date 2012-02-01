@@ -23,6 +23,7 @@ package sprites
 		public var isMoving:Boolean;
 		
 		public var toggle:int;
+		public var countdown:int;
 		
 		public function MainChar(X:Number=0, Y:Number=0)
 		{
@@ -92,9 +93,6 @@ package sprites
 					// See if we are moving
 					if (x != targetX || y != targetY)
 					{
-						//Looks like we are moving so play sound, flag isMoving and add to score.
-						//FlxG.play(GameAssets.FroggerHopSound);
-						
 						// Once this flag is set, the frog will not take keyboard input until it has reacged its target
 						isMoving = true;
 						
@@ -136,14 +134,31 @@ package sprites
 					play("idle" + facing);
 				}
 				
+				if(countdown > 0)
+				{
+					countdown--;
+				} else if (countdown == 0)
+				{
+					loadGraphic(GameAssets.PenguinSprite, true, false, 60, 60);
+					countdown = -1;	
+				}
+				
 			}
 			
 			
+			
+			// rotate Mr. Penguin
 			if(toggle == 0) this.angle -= 20;
 			else if(toggle==1) this.angle += 20;
 			toggle = (toggle+1)%2;
 			
 			super.update();
+		}
+		
+		public function gotAttacked():void
+		{
+			loadGraphic(GameAssets.InjuredPenguin, true, false, 60, 60);
+			countdown = 15;
 		}
 		
 		/**
@@ -176,7 +191,7 @@ package sprites
 		 */
 		public function death():void
 		{
-			
+			loadGraphic(GameAssets.InjuredPenguin, true, false);
 		}
 		
 		/**
